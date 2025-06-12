@@ -10,6 +10,11 @@ body {
   overflow-x: hidden;
 }
 
+.title-image {
+  height: 50px; /* adjust as needed */
+  object-fit: contain;
+}
+
 .page-content {
   flex: 1;
 }
