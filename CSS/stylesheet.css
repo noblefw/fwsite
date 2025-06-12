@@ -11,7 +11,7 @@ body {
 }
 
 .title-image {
-  height: 50px; /* adjust as needed */
+  height: 40px; /* adjust as needed */
   object-fit: contain;
 }
 
@@ -30,31 +30,34 @@ header {
   height: 80px;
   max-width: 1200px;
   margin: 0 auto;
-  gap: 1rem;
+  justify-content: space-between;
+  padding: 0 1rem;
 }
 
 .navbar-left {
+  margin-right: 1rem;
+}
+
+.navbar-center {
   flex: 0 0 auto;
-  margin-right: 0.5rem;
+  margin-right: auto;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.navbar-right {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
 }
 
 .logo {
   height: 60px;
-}
-
-.navbar-center {
-  flex: 1 1 auto;
-  text-align: left;
-  font-weight: 400;
-  color: #000000;
-}
-
-.navbar-links {
-  flex: 3;
-  display: flex;
-  gap: 1.5rem;
-  justify-content: flex-start;
-  align-items: center;
 }
 
 .navbar-links a {
@@ -68,13 +71,6 @@ header {
   color: #7a8450;
 }
 
-.navbar-right {
-  flex: 2;
-  display: flex;
-  justify-content: flex-end;
-  gap: 1rem;
-  align-items: center;
-}
 
 .btn {
   background: #7a8450;
