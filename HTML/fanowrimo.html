@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FantasyWriters | FaNoWriMo</title>
+  <link rel="stylesheet" href="/CSS/stylesheet.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="navbar-left">
+        <img src="/Images/FW-logo.png" alt="Logo" class="logo" />
+      </div>
+      <div class="navbar-center">
+        <h1>FantasyWriters</h1>
+      </div>
+      <div class="navbar-links">
+        <a href="/HTML/index.html">Home</a>
+        <a href="/HTML/fanowrimo.html">FaNoWriMo</a>
+        <a href="/HTML/404.html">Resources</a>
+        <a href="/HTML/404.html">About</a>
+        <a href="/HTML/404.html">Contact</a>
+      </div>
+      <div class="navbar-right">
+        <a href="/signup" class="btn">Register</a>
+        <a href="/login" class="btn">Login</a>
+      </div>
+    </nav>
+  </header>
+
+<main class="fanowrimo-page">
+  <h1>FaNoWriMo | Full Guide</h1>
+
+  <h2>What is FaNoWriMo?</h2>
+  <p>Fantasy Novel Writing Month is a 30-day event during which writers track their writing in hopes of hitting 50k words at the end of the month. You have the chance to obtain special roles.</p>
+  <p>We created a bot for Discord that allows our members to register their novel and track their writing progress. It’s very much like what NaNoWriMo has to offer, but on Discord.</p>
+  <p>Since you have been selected as a tester we want to know if the bot can handle multiple novels being registered in our database.</p>
+
+  <div class="note">
+    <strong>PREVIEW:</strong><br />
+    The only information the bot registers is title, synopsis, word count, genre and book cover.
+  </div>
+
+  <div class="preview-img">
+    <img src="/Images/preview-img.png" alt="">
+  </div>
+
+  <h2>Getting Started</h2>
+
+<div class="create-novel-section">
+
+  <!-- Move h3 + p here, full width -->
+  <div class="header-text">
+    <h3>1. Create a novel</h3>
+    <p>Run the command <code>/novel_create</code> and a pop-up will show up;</p>
+  </div>
+
+  <!-- Two columns below -->
+  <div class="columns">
+    <div class="left-side">
+      <img src="/Images/image-step1.png" alt="Create a novel" />
+    </div>
+    <div class="right-side">
+      <ul>
+        <li><strong>Title</strong><br />
+          If you do not have a title yet then use a placeholder that fits what you’re writing, but please refrain from using ‘untitled’, ‘tba’, etc.</li>
+        <li><strong>Description</strong><br />
+          A maximum of 4000 characters. It is up to you how much information you want to share, but it’s always good for members to get an idea.</li>
+        <li><strong>Genre</strong><br />
+          If it has several genres then use a slash to separate them.</li>
+        <li><strong>Total Word Count</strong><br />
+          Make sure you type in the TOTAL word count of your novel.</li>
+        <li><strong>Cover URL (The image size must be 180 x 270)</strong><br />
+          Go to IMGBB and upload your book cover. Right-click and open the image in a new tab and copy that link. Paste that link into the Cover URL box.<br />
+          This is the only way it will work.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+  <h3>2. View Your novel</h3>
+  <p>Run the command <code>/novel_info</code> and it will load up an image;</p>
+  <p>The image above is what will be generated and as you can see it will load up all the information that you’ve put into the pop-up window.</p>
+  <p>You will notice that in the picture the progress bar has already made progress, but this will not be the case for you as you’ve started completely fresh.</p>
+  <p>I’ll explain to you now how you can update your word count along the way!</p>
+
+  <h3>3. Update Word Count</h3>
+  <p>Type the command <code>/add_wordcount</code></p>
+  <p>A menu will pop up displaying the novels that you have registered. Make sure you select the correct one. Once selected add up the amount of words you’ve written that day in the add_word_count box.</p>
+
+  <h3>4. Edit / Delete your novel</h3>
+  <ul>
+    <li><code>/edit_novel</code><br />
+        Once you run that command select your novel from the list and click it!</li>
+    <li><code>/delete_novel</code><br />
+        Once you run that command select your novel from the list and it will be permanently removed. This cannot be undone.</li>
+  </ul>
+
+  <p>You’ve completed the guide. If you run into any issues you can ask for help in the discord server!</p>
+
+  </main>
+  <footer>
+    &copy; 2025 FantasyWriters
+  </footer>
+</body>
+</html>

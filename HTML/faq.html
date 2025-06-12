@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FaNoWriMo | Frequently Asked Questions</title>
+  <link rel="stylesheet" href="/CSS/stylesheet.css" />
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="navbar-left">
+        <img src="/Images/FW-logo.png" alt="Logo" class="logo" />
+      </div>
+
+      <div class="navbar-center">
+        <h1>FantasyWriters</h1>
+      </div>
+
+      <div class="navbar-links">
+        <a href="/HTML/index.html">Home</a>
+
+        <div class="dropdown">
+          <a href="/HTML/fanowrimo.html" class="dropbtn">
+            FaNoWriMo <span class="arrow-down"></span>
+          </a>
+          <div class="dropdown-content">
+            <a href="/HTML/faq.html">FAQ</a>
+          </div>
+        </div>
+
+        <a href="/HTML/404.html">Resources</a>
+        <a href="/HTML/about.html">About</a>
+        <a href="/HTML/404.html">Community</a>
+      </div>
+
+      <div class="navbar-right">
+        <a href="/HTML/contact.html" class="btn">Contact Us</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page-content">
+    <div class="faq-wrapper">
+      <h1>Frequently Asked Questions</h1>
+      <p class="faq-intro">Find answers to some of the most common questions below.</p>
+
+      <div class="accordion">
+        <div class="accordion-item">
+          <button aria-expanded="false">
+            <span class="accordion-title">What is Fanowrimo?</span>
+            <span class="icon" aria-hidden="true"></span>
+          </button>
+          <div class="accordion-content">
+            <p>Fanowrimo is a creative writing challenge designed to inspire fanfiction authors to complete a novel-length project in a month.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button aria-expanded="false">
+            <span class="accordion-title">Do I need to register?</span>
+            <span class="icon" aria-hidden="true"></span>
+          </button>
+          <div class="accordion-content">
+            <p>Registration isn't required, but signing up lets you track your word count, earn badges, and join the community.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button aria-expanded="false">
+            <span class="accordion-title">Can I write original fiction?</span>
+            <span class="icon" aria-hidden="true"></span>
+          </button>
+          <div class="accordion-content">
+            <p>This event focuses on fanfiction, but you're welcome to explore original stories as long as you follow your passion!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 FantasyWriters
+  </footer>
+
+  <script>
+    document.querySelectorAll('.accordion button').forEach(button => {
+      button.addEventListener('click', () => {
+        const expanded = button.getAttribute('aria-expanded') === 'true';
+        document.querySelectorAll('.accordion button').forEach(b => b.setAttribute('aria-expanded', 'false'));
+        if (!expanded) button.setAttribute('aria-expanded', 'true');
+      });
+    });
+  </script>
+</body>
+</html>
