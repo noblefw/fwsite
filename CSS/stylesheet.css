@@ -11,7 +11,8 @@ body {
 }
 
 .title-image {
-  height: 40px; /* adjust as needed */
+  height: 60px;
+  margin-top: 5px;
   object-fit: contain;
 }
 
@@ -29,35 +30,34 @@ header {
   align-items: center;
   height: 80px;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 0 0 15rem; /* 1rem left margin, no right margin */
   justify-content: space-between;
-  padding: 0 1rem;
 }
 
 .navbar-left {
-  margin-right: 1rem;
-}
-
-.navbar-center {
+  display: flex;
+  align-items: center;
+  gap: 0rem;
   flex: 0 0 auto;
-  margin-right: auto;
-}
-
-.navbar-links {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.navbar-right {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
 }
 
 .logo {
   height: 60px;
+}
+
+.title-image {
+  height: 40px;
+  object-fit: contain;
+  margin-top: 0.5rem; /* Moves the title image down by 0.5rem (8px) */
+  margin-left: 1rem;
+
+}
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex: 1 1 1;
+  justify-content: center;
 }
 
 .navbar-links a {
@@ -71,6 +71,11 @@ header {
   color: #7a8450;
 }
 
+.navbar-right {
+  flex: 1 1 1;
+  display: flex;
+  align-items: center;
+}
 
 .btn {
   background: #7a8450;
@@ -123,7 +128,6 @@ header {
   display: block;
 }
 
-/* Arrow indicator */
 .arrow-down {
   display: inline-block;
   margin-left: 6px;
@@ -136,11 +140,9 @@ header {
   transition: transform 0.2s ease;
 }
 
-/* Rotate arrow on hover */
 .dropdown:hover .arrow-down {
   transform: rotate(180deg);
 }
-
 
 
 main {
