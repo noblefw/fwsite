@@ -23,6 +23,7 @@ body {
 header {
   background-color: #bcc595;
   padding: 0 2rem;
+  box-shadow: 0 1px 2px 1px rgba(161, 160, 160, 0.2); /* Deeper shadow */
 }
 
 .navbar {
@@ -168,21 +169,34 @@ footer {
 /* Control hero-image height */
 .hero-image {
   position: relative;
-  width: 100vw;          /* Full viewport width */
-  left: 50%;             /* Shift left 50% */
-  right: 50%;            /* Shift right 50% */
-  margin-left: -50vw;    /* Pull back left by half viewport */
-  margin-right: -50vw;   /* Pull back right by half viewport */
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
   height: 400px;
   overflow: hidden;
-  max-width: 100vw;      /* Prevent exceeding viewport width */
+  max-width: 100vw;
 }
 
 .hero-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center center; /* Default: center of image */
   display: block;
+  transition: object-position 0.9s ease-out; /* Shorter, smoother transition */
+  will-change: object-position; /* Hint to browser for optimization */
+}
+
+.hero-image:hover img {
+  object-position: center 47%; /* Your preferred subtle shift */
+  transition-delay: 0s; /* No delay on hover start */
+}
+
+/* Optional: Delay on hover exit */
+.hero-image img:not(:hover) {
+  transition-delay: 0.2s; /* Slight delay before dropping back */
 }
 
 /* Adjust half-circle height and positioning */
@@ -435,10 +449,12 @@ footer {
 
 .accordion {
   border-top: 1px solid #ddd;
+  
 }
 
 .accordion-item {
   border-bottom: 1px solid #ddd;
+  box-shadow: #191a19 0 0.1px 0;
 }
 
 .accordion button {
@@ -451,18 +467,22 @@ footer {
   border: none;
   font-size: 1.15rem;
   font-weight: 600;
-  color: #7a8450;
+  color: #3f442d;
   cursor: pointer;
   outline: none;
   transition: color 0.3s ease;
 }
 
+
 .accordion button:hover {
-  color: #a0b26b;
+  background-color: #929b8a49;
+  transition: background-color 0.2s ease-in-out;
 }
+
 
 .accordion-title {
   padding-right: 2em;
+  
 }
 
 .accordion .icon {
@@ -474,6 +494,7 @@ footer {
   border: 1px solid currentColor;
   border-radius: 50%;
   transform: translateY(-50%);
+  
 }
 
 .accordion .icon::before,
@@ -516,7 +537,8 @@ footer {
 }
 
 .accordion-content p {
-  margin: 1em 0;
+  margin: 1.2em 0;
   font-size: 1rem;
-  color: #333;
+  text-align: left;
+  color: #050505;
 }
