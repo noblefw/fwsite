@@ -542,3 +542,83 @@ footer {
   text-align: left;
   color: #050505;
 }
+
+/* Copy of main page styles, with only text-align adjusted */
+
+.contact-page {
+  /* override text alignment to left */
+  text-align: left;
+}
+
+/* Repeating key styles from main stylesheet affecting the contact page */
+
+.contact-page h1 {
+  color: #5c7048;
+  border-bottom: 3px solid #bcc595;
+  padding-bottom: 0.3em;
+  margin-bottom: 1em;
+  text-align: left;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-page .note {
+  background: #e7f0d7;
+  border-left: 5px solid #bcc595;
+  padding: 10px 15px;
+  margin: 1em auto 1.5em auto;
+  max-width: 700px;
+  font-style: italic;
+  color: #4a5b36;
+  text-align: left;
+  font-weight: 400;
+}
+
+.contact-page form {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-page label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.contact-page input[type="text"],
+.contact-page input[type="email"],
+.contact-page textarea {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.contact-page button.btn {
+  background: #7a8450;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-weight: 600;
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.contact-page button.btn:hover {
+  background: #5c6538;
+}
+
+.contact-page label::after {
+  content: " *";
+  color: red;
+  margin-left: 0.2rem;
+  font-weight: 700;
+}

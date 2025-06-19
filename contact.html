@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FantasyWriters | Contact Us</title>
+  <link rel="stylesheet" href="CSS/stylesheet.css" />
+  <link rel="stylesheet" href="CSS/contact.css" />
+  <link rel="icon" href="Images/FW-logo.png" type="image/png" />
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="navbar-left">
+        <a href="index.html">
+          <img src="Images/FW-logo.png" alt="Logo" class="logo" />
+        </a>
+        <a href="index.html">
+          <img src="Images/FW_title.png" alt="FantasyWriters Title" class="title-image" />
+        </a>
+      </div>
+
+      <div class="navbar-links">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+          <a href="fanowrimo.html" class="dropbtn">
+            FaNoWriMo <span class="arrow-down"></span>
+          </a>
+          <div class="dropdown-content">
+            <a href="faq.html">FAQ</a>
+          </div>
+        </div>
+        <a href="404.html">Resources</a>
+        <a href="about.html">About</a>
+        <a href="404.html">Community</a>
+      </div>
+
+      <div class="navbar-right">
+        <a href="contact.html" class="btn">Contact Us</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page-content contact-page">
+    <h1>Contact Us</h1>
+
+    <div class="note">
+      If you have general questions about the website, FaNoWriMo, or potential partnerships, feel free to reach out using the form below.
+      <br /><br />
+      Please note: issues related to the <strong>Discord</strong> or <strong>Reddit</strong> communities should be reported directly on those platforms.
+    </div>
+
+    <form action="https://formspree.io/f/xeokzblp" method="POST" class="contact-form" style="max-width: 700px; margin: 0 auto;" id="contact-form">
+      <div style="margin-bottom: 1.5rem;">
+        <label for="name" style="display:block; font-weight:600; margin-bottom:0.3rem;">Name</label>
+        <input type="text" id="name" name="name" required style="width:100%; padding:0.7rem; border:1px solid #ccc; border-radius:4px;">
+      </div>
+
+      <div style="margin-bottom: 1.5rem;">
+        <label for="email" style="display:block; font-weight:600; margin-bottom:0.3rem;">Email</label>
+        <input type="email" id="email" name="email" required style="width:100%; padding:0.7rem; border:1px solid #ccc; border-radius:4px;">
+      </div>
+
+      <div style="margin-bottom: 1.5rem;">
+        <label for="message" style="display:block; font-weight:600; margin-bottom:0.3rem;">Message</label>
+        <textarea id="message" name="message" rows="6" required style="width:100%; padding:0.7rem; border:1px solid #ccc; border-radius:4px;"></textarea>
+      </div>
+
+      <button type="submit" class="btn">Submit</button>
+    </form>
+  </main>
+
+<script>
+  const form = document.getElementById('contact-form');
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        form.reset();
+        form.style.display = 'none';
+
+        const confirmation = document.createElement('p');
+        confirmation.textContent = "Thank you for contacting us. We'll reply as soon as possible!";
+        confirmation.style.color = '#5c7048';
+        confirmation.style.fontWeight = '600';
+        confirmation.style.marginTop = '1rem';
+        confirmation.style.textAlign = 'center';
+        form.parentNode.appendChild(confirmation);
+      } else {
+        alert("Oops! Something went wrong. Please try again later.");
+      }
+    } catch (error) {
+      alert("Error sending message. Please check your connection and try again.");
+    }
+  });
+</script>
+
+
+  <footer>
+    &copy; 2025 FantasyWriters. All rights reserved.
+  </footer>
+</body>
+</html>
