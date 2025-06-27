@@ -8,87 +8,89 @@
   <link rel="icon" href="Images/FW-logo.png" type="image/png" />
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-  <div class="navbar-left">
-    <a href="index.html">
-      <img src="Images/FW-logo.png" alt="Logo" class="logo" />
-    </a>
-    <a href="index.html">
-      <img src="Images/FW_title.png" alt="FantasyWriters Title" class="title-image" />
-    </a>
-  </div>
-
-  <div class="navbar-links">
-    <a href="index.html">Home</a>
-    <div class="dropdown">
-      <a href="fanowrimo.html" class="dropbtn">
-        FaNoWriMo <span class="arrow-down"></span>
+    <header>
+  <nav class="navbar">
+    <div class="navbar-left">
+      <a href="index.html">
+        <img src="Images/FW-logo.png" alt="Logo" class="logo" />
       </a>
-      <div class="dropdown-content">
-        <a href="faq.html">FAQ</a>
-      </div>
+      <a href="index.html">
+        <img src="Images/FW_title.png" alt="FantasyWriters Title" class="title-image" />
+      </a>
     </div>
-    <a href="404.html">Resources</a>
-    <a href="about.html">About</a>
-    <a href="404.html">Community</a>
-    <a href="contact.html" class="mobile-contact">Contact Us</a>
-  </div>
 
-  <div class="navbar-right">
-    <a href="contact.html" class="btn desktop-contact">Contact Us</a>
-    <button class="hamburger" aria-label="Toggle menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </div>
-</nav>
-  </header>
-
-  <main>
-    <section class="hero-image">
-      <img src="Images/home-img.jpg" alt="Fantasy scene" />
-      <div class="half-circle">
-        <div class="circle-content">
-          <h2>FaNoWriMo | Track your writing.</h2>
-          <p>Join real-time chats with fellow fantasy authors, participate in writing challenges, and get instant support and motivation.</p>
-          <a href="fanowrimo.html" class="btn">Get Started</a>
+    <div class="navbar-links">
+      <a href="index.html">Home</a>
+      <div class="dropdown">
+        <a href="fanowrimo.html" class="dropbtn">
+          FaNoWriMo <span class="arrow-down"></span>
+        </a>
+        <div class="dropdown-content">
+          <a href="faq.html">FAQ</a>
         </div>
       </div>
-    </section>
+      <a href="404.html">Resources</a>
+      <a href="about.html">About</a>
+      <a href="404.html">Community</a>
+      <a href="contact.html" class="btn">Contact Us</a>
+    </div>
 
-    <section class="community-links">
-      <div class="link-card">
-        <a href="https://www.reddit.com/r/fantasywriters/" target="_blank">
-          <img src="Images/Reddit_Logo.png" alt="Reddit Community">
-          <h3>Subreddit</h3>
-        </a>
-        <p>A community to share ideas, get feedback, and discuss everything from fantasy and worldbuilding to character arcs.</p>
-      </div>
+    <div class="navbar-right">
+      <button class="hamburger" id="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+</header>
 
-      <div class="link-card">
-        <a href="https://discord.com/invite/7nu2Zz8StN" target="_blank">
-          <img src="Images/Discord_Logo.png" alt="Discord Server">
-          <h3>Discord Server</h3>
-        </a>
-        <p>Join real time chats with fellow fantasy writers, participate in active discussion, and get instant support and motivation.</p>
+  <main>
+  <section class="hero-image">
+    <img src="Images/home-img.jpg" alt="Fantasy scene" />
+    <div class="half-circle">
+      <div class="circle-content">
+        <h2>FaNoWriMo | Track your writing.</h2>
+        <p>Join real-time chats with fellow fantasy authors, participate in writing challenges, and get instant support and motivation.</p>
+        <a href="fanowrimo.html" class="btn">Get Started</a>
       </div>
-    </section>
+    </div>
+  </section>
+
+  <section class="community-links">
+  <div class="link-card">
+    <a href="https://www.reddit.com/r/fantasywriters/" target="_blank">
+      <img src="Images/Reddit_Logo.png" alt="Reddit Community">
+      <h3>Subreddit</h3>
+    </a>
+    <p>A community to share ideas, get feedback, and discuss everything from fantasy and worldbuilding to character arcs.</p>
+  </div>
+
+  <div class="link-card">
+    <a href="https://discord.com/invite/7nu2Zz8StN" target="_blank">
+      <img src="Images/Discord_Logo.png" alt="Discord Server">
+      <h3>Discord Server</h3>
+    </a>
+    <p>Join real time chats with fellow fantasy writers, participate in active discussion, and get instant support and motivation.</p>
+  </div>
+</section>
+
   </main>
-
   <footer>
-    © 2025 FantasyWriters
+    &copy; 2025 FantasyWriters
   </footer>
 
-  <script>
-    const hamburger = document.querySelector('.hamburger');
-    const navbarLinks = document.querySelector('.navbar-links');
+   <script>
+const hamburger = document.querySelector('.hamburger');
+const menu = document.querySelector('.navbar-links'); // select by class, not id
 
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navbarLinks.classList.toggle('active');
-    });
+hamburger.addEventListener('click', () => {
+  const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+  hamburger.setAttribute('aria-expanded', !expanded);
+  menu.classList.toggle('active');
+  hamburger.classList.toggle('active'); // toggle hamburger animation
+});
   </script>
+
 </body>
 </html>
