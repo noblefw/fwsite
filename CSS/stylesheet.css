@@ -19,92 +19,119 @@ header {
 
 .navbar {
   display: flex;
-  align-items: center;
-  height: 80px;
-  max-width: 1200px;
-  margin: 0 0 0 15rem; /* Reverted to your original margin */
   justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  flex-wrap: nowrap; /* prevent wrapping so logo/title + hamburger stay on same line */
 }
 
 .navbar-left {
   display: flex;
   align-items: center;
-  gap: 0rem;
-  flex: 0 0 auto;
+  gap: 1rem; /* spacing between logo and title */
+  flex-shrink: 0; /* prevent shrinking */
 }
 
-.logo {
-  height: 60px;
-}
-
-.title-image {
+.navbar-left img.logo {
   height: 40px;
-  object-fit: contain;
-  margin-top: 0.5rem;
-  margin-left: 1rem;
 }
 
-/* Hamburger Icon */
+.navbar-left img.title-image {
+  height: 30px;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0; /* prevent shrinking */
+}
+
+/* --- HAMBURGER --- */
 .hamburger {
-  display: none; /* Hidden on desktop */
-  background: none;
-  border: none;
   cursor: pointer;
-  padding: 10px;
-  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: none;
+  background: none;
+  padding: 0;
+  flex-shrink: 0;
 }
 
 .hamburger span {
   display: block;
   width: 25px;
   height: 3px;
-  background: #333;
-  margin: 5px 0;
-  transition: all 0.3s ease;
+  background-color: #000;
+  border-radius: 2px;
 }
 
 .hamburger.active span:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
+  transform: rotate(45deg) translate(5px, 5px);
 }
-
 .hamburger.active span:nth-child(2) {
   opacity: 0;
 }
-
 .hamburger.active span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
-.nav-menu {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  flex: 1 1 auto;
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: nowrap; /* Keep logo/title + hamburger on same line */
+  }
+
+  .navbar-left {
+    gap: 0.5rem;
+  }
+
+  .navbar-left img.logo {
+    height: 40px;
+  }
+
+  .navbar-left img.title-image {
+    height: 25px;
+  }
+
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem;
+    background: #fff;
+    gap: 1rem;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar-right {
+    margin-left: auto;
+  }
 }
 
-.navbar-links {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  flex: 1 1 auto;
-  justify-content: center;
-}
+@media (min-width: 769px) {
+  .hamburger {
+    display: none;
+  }
 
-.navbar-links a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-.navbar-links a:hover {
-  color: #7a8450;
-}
-
-.navbar-right {
-  flex: 1 1 auto;
-  display: flex;
-  align-items: center;
+  .navbar-links {
+    margin-left: auto;
+    display: flex !important;
+  }
 }
 
 .btn {
@@ -134,7 +161,7 @@ header {
   top: 100%;
   left: 0;
   background-color: #fff;
-  min-width: 160px;
+  min-width: 120px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.15);
   z-index: 1;
   border-radius: 4px;
@@ -176,8 +203,8 @@ header {
 
 main {
   flex: 1;
-  padding: 3rem 1rem;
-  max-width: 700px;
+  padding: 2rem 1rem;
+  max-width: 1000px;
   margin: 0 auto;
   text-align: center;
 }
@@ -190,17 +217,14 @@ footer {
   color: #555;
 }
 
-/* Hero Image (Original, Unchanged) */
+/* Hero Image - Full-width edge-to-edge */
 .hero-image {
   position: relative;
   width: 100vw;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
   height: 400px;
   overflow: hidden;
-  max-width: 100vw;
 }
 
 .hero-image img {
@@ -222,24 +246,25 @@ footer {
   transition-delay: 0.2s;
 }
 
-/* Half Circle (Original, Unchanged) */
+/* Half Circle */
 .half-circle {
   position: absolute;
-  top: 0%;
-  left: 200px;
+  top: 0;
+  left: 5%;
+  width: 50%;
+  max-width: 550px;
   height: 100%;
-  width: 550px;
   background: linear-gradient(135deg, #99a178, #bcc595);
   border-radius: 0px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 50px;
+  padding: 2rem;
   box-sizing: border-box;
   color: #fff;
   text-align: left;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   font-weight: 600;
   box-shadow: 3px 0 30px rgba(0, 0, 0, 0.3);
   overflow: hidden;
@@ -247,20 +272,20 @@ footer {
 
 .circle-content h2 {
   margin: 0;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
 }
 
 .circle-content p {
   margin: 0;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #f0f0f0;
 }
 
 .half-circle .btn {
   background: #7a8450;
   color: white;
-  padding: 0.5rem 1.2rem;
+  padding: 0.5rem 1rem;
   border-radius: 4px;
   font-weight: 600;
   text-decoration: none;
@@ -277,8 +302,8 @@ footer {
 .community-links {
   display: flex;
   justify-content: center;
-  gap: 5rem;
-  padding: 3rem 1rem;
+  gap: 2rem;
+  padding: 2rem 1rem;
   text-align: center;
   flex-wrap: wrap;
 }
@@ -289,8 +314,8 @@ footer {
 }
 
 .community-links img {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   object-fit: contain;
   margin-bottom: 1rem;
   transition: transform 0.3s ease;
@@ -317,75 +342,7 @@ footer {
   color: #555;
 }
 
-/* Media Queries for Navbar Responsiveness */
-@media (max-width: 768px) {
-  .hamburger {
-    display: block; /* Show hamburger on tablets and below */
-  }
 
-  .nav-menu {
-    position: fixed;
-    top: 80px;
-    right: -100%; /* Hidden off-screen */
-    width: 250px;
-    height: calc(100vh - 80px);
-    background: #bcc595;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 2rem 1rem;
-    transition: right 0.3s ease;
-    z-index: 999;
-  }
-
-  .nav-menu.active {
-    right: 0; /* Slide in from right */
-  }
-
-  .navbar-links {
-    flex-direction: column;
-    gap: 1.5rem;
-    width: 100%;
-    text-align: left;
-  }
-
-  .navbar-right {
-    margin-top: 1.5rem;
-  }
-
-  .dropdown-content {
-    position: static;
-    box-shadow: none;
-    background: #a9b282;
-    min-width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  header {
-    padding: 0 1rem;
-  }
-
-  .navbar {
-    padding: 0.5rem;
-    margin: 0; /* Remove left margin for mobile */
-  }
-
-  .logo, .title-image {
-    height: 40px;
-  }
-
-  .nav-menu {
-    width: 100%; /* Full-width on phones */
-  }
-
-  .navbar-links {
-    gap: 1rem;
-  }
-
-  .dropdown-content {
-    min-width: 100%;
-  }
-}
 .fanowrimo-page h1 {
   color: #5c7048;
   border-bottom: 3px solid #bcc595;
