@@ -8,23 +8,23 @@
   <link rel="icon" href="Images/FW-logo.png" type="image/png" />
 </head>
 <body>
-  <header>
+    <header>
     <nav class="navbar">
       <div class="navbar-left">
         <a href="index.html">
-          <img src="Images/FW-logo.png" alt="FantasyWriters Logo" class="logo" />
+          <img src="Images/FW-logo.png" alt="Logo" class="logo" />
         </a>
         <a href="index.html">
           <img src="Images/FW_title.png" alt="FantasyWriters Title" class="title-image" />
         </a>
       </div>
 
-      <div class="navbar-links" id="navbar-links">
+      <div class="navbar-links">
         <a href="index.html">Home</a>
         <div class="dropdown">
-          <button class="dropbtn" aria-haspopup="true" aria-expanded="false">
+          <a href="fanowrimo.html" class="dropbtn">
             FaNoWriMo <span class="arrow-down"></span>
-          </button>
+          </a>
           <div class="dropdown-content">
             <a href="faq.html">FAQ</a>
           </div>
@@ -32,103 +32,54 @@
         <a href="404.html">Resources</a>
         <a href="about.html">About</a>
         <a href="404.html">Community</a>
-        <a href="contact.html" class="btn">Contact Us</a>
       </div>
 
       <div class="navbar-right">
-        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </button>
+        <a href="contact.html" class="btn">Contact Us</a>
       </div>
     </nav>
   </header>
 
   <main>
-    <section class="hero-image">
-      <img src="Images/home-img.jpg" alt="Epic fantasy landscape with mountains and castle" loading="eager" />
-      <div class="half-circle">
-        <div class="circle-content">
-          <h2>FaNoWriMo | Track your writing.</h2>
-          <p>Join real-time chats with fellow fantasy authors, participate in writing challenges, and get instant support and motivation.</p>
-          <a href="fanowrimo.html" class="btn">Get Started</a>
-        </div>
+  <section class="hero-image">
+    <img src="Images/home-img.jpg" alt="Fantasy scene" />
+    <div class="half-circle">
+      <div class="circle-content">
+        <h2>FaNoWriMo | Track your writing.</h2>
+        <p>Join real-time chats with fellow fantasy authors, participate in writing challenges, and get instant support and motivation.</p>
+        <a href="fanowrimo.html" class="btn">Get Started</a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="community-links">
-      <div class="link-card">
-        <a href="https://www.reddit.com/r/fantasywriters/" target="_blank" rel="noopener">
-          <img src="Images/Reddit_Logo.png" alt="Reddit Community Logo" loading="lazy" />
-          <h3>Subreddit</h3>
-        </a>
-        <p>A community to share ideas, get feedback, and discuss everything from fantasy and worldbuilding to character arcs.</p>
-      </div>
+  <section class="community-links">
+  <div class="link-card">
+    <a href="https://www.reddit.com/r/fantasywriters/" target="_blank">
+      <img src="Images/Reddit_Logo.png" alt="Reddit Community">
+      <h3>Subreddit</h3>
+    </a>
+    <p>A community to share ideas, get feedback, and discuss everything from fantasy and worldbuilding to character arcs.</p>
+  </div>
 
-      <div class="link-card">
-        <a href="https://discord.com/invite/7nu2Zz8StN" target="_blank" rel="noopener">
-          <img src="Images/Discord_Logo.png" alt="Discord Community Logo" loading="lazy" />
-          <h3>Discord Server</h3>
-        </a>
-        <p>Join real-time chats with fellow fantasy writers, participate in active discussion, and get instant support and motivation.</p>
-      </div>
-    </section>
+  <div class="link-card">
+    <a href="https://discord.com/invite/7nu2Zz8StN" target="_blank">
+      <img src="Images/Discord_Logo.png" alt="Discord Server">
+      <h3>Discord Server</h3>
+    </a>
+    <p>Join real time chats with fellow fantasy writers, participate in active discussion, and get instant support and motivation.</p>
+  </div>
+</section>
+
   </main>
-
   <footer>
-    <p>&copy; 2025 FantasyWriters. All rights reserved.</p>
+    © 2025 FantasyWriters
   </footer>
 
   <script>
-    const hamburger = document.querySelector('#hamburger');
-    const menu = document.querySelector('#navbar-links');
-    const dropdownBtn = document.querySelector('.dropbtn');
-    const dropdownContent = document.querySelector('.dropdown-content');
-
-    if (hamburger && menu) {
-      hamburger.addEventListener('click', () => {
-        const expanded = hamburger.getAttribute('aria-expanded') === 'true';
-        hamburger.setAttribute('aria-expanded', !expanded);
-        menu.classList.toggle('active');
-        hamburger.classList.toggle('active');
-      });
-
-      // Close menu on outside click
-      document.addEventListener('click', (e) => {
-        if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
-          menu.classList.remove('active');
-          hamburger.setAttribute('aria-expanded', 'false');
-          hamburger.classList.remove('active');
-        }
-      });
-
-      // Close menu on Escape key
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && menu.classList.contains('active')) {
-          menu.classList.remove('active');
-          hamburger.setAttribute('aria-expanded', 'false');
-          hamburger.classList.remove('active');
-        }
-      });
-    }
-
-    if (dropdownBtn && dropdownContent) {
-      dropdownBtn.addEventListener('click', () => {
-        const expanded = dropdownBtn.getAttribute('aria-expanded') === 'true';
-        dropdownBtn.setAttribute('aria-expanded', !expanded);
-        dropdownContent.style.display = expanded ? 'none' : 'block';
-      });
-
-      dropdownBtn.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          const expanded = dropdownBtn.getAttribute('aria-expanded') === 'true';
-          dropdownBtn.setAttribute('aria-expanded', !expanded);
-          dropdownContent.style.display = expanded ? 'none' : 'block';
-        }
-      });
-    }
+    document.querySelector('.hamburger').addEventListener('click', function () {
+      this.classList.toggle('active');
+      document.querySelector('.navbar-links').classList.toggle('active');
+    });
   </script>
 </body>
 </html>
