@@ -207,4 +207,9 @@
   showNextQuote();
   quoteInterval = setInterval(showNextQuote, 5000);
 
-  
+  const password = "dragonknight";
+  let attempt = prompt("Enter password to access this page:");
+  if (attempt !== password) {
+    alert("Wrong password!");
+    window.location.href = "https://fantasywriters.org/404.html"; // redirect away or close
+  }
