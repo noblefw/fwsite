@@ -102,7 +102,8 @@
           audio = null;
         }
 
-        const alarmSound = new Audio('Sound/Alarm.mp3');
+        const alarmSound = new Audio('Sound/Alarm2.mp3');
+        alarmSound.volume = 1;
         alarmSound.play();
 
         const sprintMinutes = parseInt(durationSelect.value);
@@ -206,9 +207,4 @@
   showNextQuote();
   quoteInterval = setInterval(showNextQuote, 5000);
 
-  const password = "dragonknight";
-  let attempt = prompt("Enter password to access this page:");
-  if (attempt !== password) {
-    alert("Wrong password!");
-    window.location.href = "https://fantasywriters.org/404.html"; // redirect away or close
-  }
+  
