@@ -1,0 +1,251 @@
+/* Writing Sprint Page */
+.sprint-page {
+  padding: 1rem 2rem;
+  text-align: left;
+  width: 20%;
+  margin: 0;
+  position: relative;
+  top: 0;
+  z-index: 5; /* Ensure it’s below settings and card */
+  background-color: #e2e1e1;
+  box-shadow: rgba(85, 84, 85, 0.041) 3px 0px 0px;
+}
+
+/* Layout container for settings and card */
+.sprint-layout {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 2rem;
+  box-sizing: border-box;
+  
+}
+
+
+/* Left settings column fixed position */
+.sprint-settings {
+  position: absolute;
+  left: 2rem;
+  top: 250px; /* Adjusted to appear below header and sprint-page content */
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 10;
+}
+
+/* Sprint card fixed position */
+.sprint-card {
+  position: absolute;
+  right: 3rem;
+  top: 150px; /* Adjusted to appear below header and sprint-page content */
+  width: 1300px;
+  height: 600px;
+  background-image: url("../Images/sprints/dragonknight.jpg"); /* Default image */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+
+}
+
+/* Card content box */
+.sprint-info {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  width: 50%;
+}
+
+.sprint-info h2 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+#sprint-timer {
+  font-size: 4rem;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+/* Buttons and selects styling */
+.sprint-settings label {
+  font-weight: bold;
+  color: #333;
+}
+
+.sprint-settings select, 
+.sprint-settings button {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.sprint-settings button.btn {
+  margin-top: 1rem;
+  cursor: pointer;
+  background-color: #77946e;
+  color: white;
+  border: none;
+}
+
+.sprint-settings button.btn:hover {
+  background-color: rgb(80, 134, 82);
+}
+
+
+.attribution {
+  display: block;
+  font-style: italic;
+  color: #555;
+  background-color: #ffffff5d;
+ 
+  padding: 10px 20px;
+  margin: 600px 0;
+  font-size: 0.9em;
+}
+
+.motivation-text {
+  text-align: center;
+  margin-top: auto;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #ffffff;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+@keyframes glow {
+  0%, 100% { text-shadow: 0 0 10px #ffd700; }
+  50% { text-shadow: 0 0 20px #ff4500; }
+}
+
+.sprint-complete {
+  font-size: 2rem;
+  color: #ffd700;
+  animation: glow 1.5s infinite;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .sprint-page {
+    width: 30%; /* or try 25% or even 20% if needed */
+    padding: 0.5rem;
+  }
+
+  .sprint-page h1 {
+    font-size: 20px;
+  }
+
+    .sprint-page p {
+    font-size: 14px;
+  }
+
+  .sprint-layout {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 0 1rem;
+  }
+
+  /* Settings smaller and fixed left but narrower */
+  .sprint-settings {
+    position: absolute;
+    top: 240px;
+    left: 0.1rem;
+    width: 200px;  /* smaller width */
+    gap: 0.8rem;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    z-index: 10;
+  }
+
+  /* Sprint card fixed right, smaller width and height */
+  .sprint-card {
+    position: absolute;
+    top: 200px;
+    right: 0.4rem;
+    width: 480px;  /* much smaller */
+    height: 300px; /* smaller height */
+    padding: 1rem;
+    border-radius: 8px;
+    background-size: cover;
+    background-position: center;
+    color: white;
+  }
+
+  /* Sprint info box inside card smaller */
+  .sprint-info {
+    width: 100%;
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .sprint-info h2 {
+    font-size: 1.5rem;
+  }
+
+  #sprint-timer {
+    font-size: 2rem;
+  }
+
+  .motivation-text {
+    font-size: 0.9rem;
+  }
+}
+
+.tooltip {
+  display: inline-block;
+  margin-left: 5px;
+  color: #414141;
+  background-color: #c7baba;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  z-index: 1000;
+}
+
+.tooltip:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 125%;
+  background-color: #333;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 5px;
+  white-space: normal;
+  width: 200px;
+  font-size: 0.85rem;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover::before {
+  content: "";
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #333;
+  z-index: 1001;
+}

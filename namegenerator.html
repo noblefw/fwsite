@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FantasyWriters | Name Generator</title>
+  <link rel="stylesheet" href="CSS/navbar.css" />
+  <link rel="stylesheet" href="CSS/footer.css" />
+  <link rel="stylesheet" href="CSS/stylesheet.css" />
+  <script src="/scripts/navbar.js" defer></script>
+  <link rel="icon" href="Images/FW-logo.png" type="image/png" />
+</head>
+<body>
+  
+<header>
+  <div class="navbar">
+    <div class="navbar-left">
+      <a href="index.html">
+        <img src="Images/Title_logo.png" alt="FantasyWriters Logo" />
+      </a>
+    </div>
+    <button class="hamburger" aria-label="Toggle menu" role="button">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="navbar-links">
+      <a href="index.html">Home</a>
+      <div class="dropdown">
+        <a href="fanowrimo.html" class="dropbtn">FaNoWriMo <span class="arrow-down"></span></a>
+        <div class="dropdown-content">
+          <a href="faq.html">FAQ</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#" class="dropbtn">Resources <span class="arrow-down"></span></a>
+        <div class="dropdown-content">
+          <div class="dropdown-section-title">Writing Tools</div>
+          <a href="writingsprint.html">Writing Sprint</a>
+          <div class="dropdown-section-title">Generators</div>
+          <a href="namegenerator.html">Name Generator</a>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+      <a href="404.html">Community</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+  </div>
+</header>
+
+<main class="fanowrimo-page">
+  <h1>Fantasy Name Generator</h1>
+  <p>Select a race and generate fantasy names in a clean, styled grid.</p>
+
+  <label for="race-select">Choose a race:</label>
+  <select id="race-select" class="btn">
+    <option value="elf">Elf</option>
+    <option value="dwarf">Dwarf</option>
+    <option value="orc">Orc</option>
+    <option value="human">Human</option>
+  </select>
+
+  <button class="btn" onclick="generateNames()">Generate Names</button>
+
+  <div id="name-grid" class="name-grid"></div>
+  <div id="copy-notification"></div>
+</main>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-column">
+      <h4>About</h4>
+      <a href="about.html" aria-label="About FantasyWriters">About Us</a>
+      <a href="contact.html" aria-label="Contact FantasyWriters">Contact Us</a>
+      <a href="contact.html" aria-label="Partnerships with FantasyWriters">Partnerships</a>
+      <a href="faq.html" aria-label="Frequently Asked Questions">Frequently Asked Questions</a>
+    </div>
+    <div class="footer-column">
+      <h4>Resources</h4>
+      <a href="writingsprint.html" aria-label="Writing Sprint Tool">Writing Sprint</a>
+      <a href="namegenerator.html" aria-label="Name Generator Tool">Name Generator</a>
+    </div>
+    <div class="footer-column">
+      <h4>Community</h4>
+      <a href="https://discord.com/invite/7nu2Zz8StN" target="_blank" rel="noopener" aria-label="Join our Discord community">
+        <img src="Images/Discord_Logo.png" alt="Discord logo" class="footer-icon" /> Discord
+      </a>
+      <a href="https://www.reddit.com/r/fantasywriters/" target="_blank" rel="noopener" aria-label="Join our Reddit community">
+        <img src="Images/Reddit_Logo.png" alt="Reddit logo" class="footer-icon" /> Reddit
+      </a>
+    </div>
+  </div>
+  <div class="footer-copy">
+    © 2025 FantasyWriters. All rights reserved.
+  </div>
+</footer>
+
+<script>
+  const nameData = {
+    elf: ["Aerendyl", "Lúthien", "Faelar", "Elenion", "Nuala", "Thalor", "Sylvara", "Aeris", "Myriil"],
+    dwarf: ["Thrain", "Borin", "Gimli", "Durin", "Bofur", "Kili", "Thror", "Dwalin", "Balin"],
+    orc: ["Gorash", "Thrukk", "Maknug", "Zugzug", "Krogar", "Ulgoth", "Brakka", "Grush", "Skarn"],
+    human: ["Alric", "Liora", "Cedric", "Elara", "Gareth", "Isolde", "Thorne", "Seren", "Mira"]
+  };
+
+  function generateNames() {
+  const race = document.getElementById("race-select").value;
+  const names = nameData[race];
+  const nameGrid = document.getElementById("name-grid");
+  const notification = document.getElementById("copy-notification");
+
+  // Shuffle and pick 9 names
+  const shuffled = [...names].sort(() => 0.5 - Math.random());
+  const selected = shuffled.slice(0, 9);
+
+  nameGrid.innerHTML = selected.map(name => `<div class="name-box">${name}</div>`).join("");
+
+  // Add click event to copy name
+  document.querySelectorAll(".name-box").forEach(box => {
+    box.addEventListener("click", () => {
+      navigator.clipboard.writeText(box.textContent);
+      notification.textContent = "Name copied to clipboard";
+      notification.style.opacity = "1";
+
+      setTimeout(() => {
+        notification.style.opacity = "0";
+      }, 2000);
+    });
+  });
+}
+
+  // Run on page load to show names immediately
+  window.onload = () => {
+    generateNames();
+  };
+</script>
+
+</body>
+</html>
