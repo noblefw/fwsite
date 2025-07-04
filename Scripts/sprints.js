@@ -172,36 +172,42 @@
     if (audio) audio.volume = slider.value / 100;
   }
 
-  slider.addEventListener('input', updateSliderBackground);
+slider.addEventListener('input', updateSliderBackground);
 
-  document.getElementById('background').addEventListener('change', function () {
-    const newBackground = this.value;
-    document.getElementById('sprint-card').style.backgroundImage = `url('${newBackground}')`;
-  });
+document.getElementById('background').addEventListener('change', function () {
+  const sprintCard = document.querySelector('.sprint-card');
 
-  durationSelect.addEventListener('change', function () {
-    if (!isRunning) {
-      const duration = parseInt(this.value);
-      timeLeft = duration * 60;
-      updateTimerDisplay(timeLeft);
-    }
-  });
+  sprintCard.style.opacity = 0;
 
-  document.getElementById('ambience').addEventListener('change', function () {
-    const selectedAmbience = this.value;
+  setTimeout(() => {
+    sprintCard.style.backgroundImage = `url('${this.value}')`;
+    sprintCard.style.opacity = 1;
+  }, 100); // 600ms = duur van je CSS transition
+});
 
-    if (audio) {
-      audio.pause();
-      audio = null;
-    }
+durationSelect.addEventListener('change', function () {
+  if (!isRunning) {
+    const duration = parseInt(this.value);
+    timeLeft = duration * 60;
+    updateTimerDisplay(timeLeft);
+  }
+});
 
-    if (selectedAmbience !== 'none') {
-      audio = new Audio(selectedAmbience);
-      audio.loop = true;
-      audio.volume = slider.value / 100;
-      audio.play();
-    }
-  });
+document.getElementById('ambience').addEventListener('change', function () {
+  const selectedAmbience = this.value;
+
+  if (audio) {
+    audio.pause();
+    audio = null;
+  }
+
+  if (selectedAmbience !== 'none') {
+    audio = new Audio(selectedAmbience);
+    audio.loop = true;
+    audio.volume = slider.value / 100;
+    audio.play();
+  }
+});
 
   // Start quotes on load
   showNextQuote();

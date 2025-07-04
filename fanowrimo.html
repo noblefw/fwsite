@@ -27,16 +27,11 @@
     <nav class="navbar-links">
       <a href="index.html">Home</a>
       <div class="dropdown">
-        <a href="fanowrimo.html" class="dropbtn">FaNoWriMo <span class="arrow-down"></span></a>
-        <div class="dropdown-content">
-          <a href="faq.html">FAQ</a>
-        </div>
-      </div>
-      <div class="dropdown">
         <a href="#" class="dropbtn">Resources <span class="arrow-down"></span></a>
         <div class="dropdown-content">
           <div class="dropdown-section-title">Writing Tools</div>
           <a href="writingsprint.html">Writing Sprint</a>
+          <a href="fanowrimo.html">FaNoWriMo</a>
           <div class="dropdown-section-title">Generators</div>
           <a href="namegenerator.html">Name Generator</a>
         </div>
@@ -51,7 +46,24 @@
 <main class="fanowrimo-page">
   <h1>FaNoWriMo | Full Guide</h1>
 
-  <h2>What is FaNoWriMo?</h2>
+  <nav class="toc">
+    <h2>Table of Contents</h2>
+    <ul>
+      <li><a href="#what-is-fanowrimo">What is FaNoWriMo?</a></li>
+      <li><a href="#getting-started">Getting Started</a>
+        <ul>
+          <li><a href="#create-a-novel">1. Create a novel</a></li>
+          <li><a href="#view-your-novel">2. View Your novel</a></li>
+          <li><a href="#update-word-count">3. Update Word Count</a></li>
+          <li><a href="#edit-delete-your-novel">4. Edit / Delete your novel</a></li>
+        </ul>
+      </li>
+      <li><a href="#faq">Frequently Asked Questions</a></li>
+    </ul>
+  </nav>
+
+  <!-- Your existing FaNoWriMo content here -->
+<h2 id="what-is-fanowrimo">What is FaNoWriMo?</h2>
   <p>Fantasy Novel Writing Month is a 30-day event during which writers track their writing in hopes of hitting 50k words at the end of the month. You have the chance to obtain special roles.</p>
   <p>We created a bot for Discord that allows our members to register their novel and track their writing progress. It’s very much like what NaNoWriMo has to offer, but on Discord.</p>
   <p>Since you have been selected as a tester we want to know if the bot can handle multiple novels being registered in our database.</p>
@@ -65,52 +77,47 @@
     <img src="Images/preview-img.png" alt="">
   </div>
 
-  <h2>Getting Started</h2>
+<h2 id="getting-started">Getting Started</h2>
 
 <div class="create-novel-section">
-
-  <!-- Move h3 + p here, full width -->
-  <div class="header-text">
-    <h3>1. Create a novel</h3>
-    <p>Run the command <code>/novel_create</code> and a pop-up will show up;</p>
-  </div>
-
-  <!-- Two columns below -->
-  <div class="columns">
-    <div class="left-side">
-      <img src="Images/image-step1.png" alt="Create a novel" />
+    <div class="header-text">
+    <h3 id="create-a-novel">1. Create a novel</h3>
+      <p>Run the command <code>/novel_create</code> and a pop-up will show up;</p>
     </div>
-    <div class="right-side">
-      <ul>
-        <li><strong>Title</strong><br />
-          If you do not have a title yet then use a placeholder that fits what you’re writing, but please refrain from using ‘untitled’, ‘tba’, etc.</li>
-        <li><strong>Description</strong><br />
-          A maximum of 4000 characters. It is up to you how much information you want to share, but it’s always good for members to get an idea.</li>
-        <li><strong>Genre</strong><br />
-          If it has several genres then use a slash to separate them.</li>
-        <li><strong>Total Word Count</strong><br />
-          Make sure you type in the TOTAL word count of your novel.</li>
-        <li><strong>Cover URL (The image size must be 180 x 270)</strong><br />
-          Go to IMGBB and upload your book cover. Right-click and open the image in a new tab and copy that link. Paste that link into the Cover URL box.<br />
-          This is the only way it will work.</li>
-      </ul>
+
+    <div class="columns">
+      <div class="left-side">
+        <img src="Images/image-step1.png" alt="Create a novel" />
+      </div>
+      <div class="right-side">
+        <ul>
+          <li><strong>Title</strong><br />
+            If you do not have a title yet then use a placeholder that fits what you’re writing, but please refrain from using ‘untitled’, ‘tba’, etc.</li>
+          <li><strong>Description</strong><br />
+            A maximum of 4000 characters. It is up to you how much information you want to share, but it’s always good for members to get an idea.</li>
+          <li><strong>Genre</strong><br />
+            If it has several genres then use a slash to separate them.</li>
+          <li><strong>Total Word Count</strong><br />
+            Make sure you type in the TOTAL word count of your novel.</li>
+          <li><strong>Cover URL (The image size must be 180 x 270)</strong><br />
+            Go to IMGBB and upload your book cover. Right-click and open the image in a new tab and copy that link. Paste that link into the Cover URL box.<br />
+            This is the only way it will work.</li>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
 
-
-
-  <h3>2. View Your novel</h3>
+<h3 id="view-your-novel">2. View Your novel</h3>
   <p>Run the command <code>/novel_info</code> and it will load up an image;</p>
   <p>The image above is what will be generated and as you can see it will load up all the information that you’ve put into the pop-up window.</p>
   <p>You will notice that in the picture the progress bar has already made progress, but this will not be the case for you as you’ve started completely fresh.</p>
   <p>I’ll explain to you now how you can update your word count along the way!</p>
 
-  <h3>3. Update Word Count</h3>
+<h3 id="update-word-count">3. Update Word Count</h3>
   <p>Type the command <code>/add_wordcount</code></p>
   <p>A menu will pop up displaying the novels that you have registered. Make sure you select the correct one. Once selected add up the amount of words you’ve written that day in the add_word_count box.</p>
 
-  <h3>4. Edit / Delete your novel</h3>
+<h3 id="edit-delete-your-novel">4. Edit / Delete your novel</h3>
   <ul>
     <li><code>/edit_novel</code><br />
         Once you run that command select your novel from the list and click it!</li>
@@ -119,6 +126,92 @@
   </ul>
 
   <p>You’ve completed the guide. If you run into any issues you can ask for help in the discord server!</p>
+
+  <!-- FAQ section added here -->
+  <div class="faq-wrapper">
+  <h1 id="faq">Frequently Asked Questions</h1>
+    <p class="faq-intro">Find answers to some of the most common questions below.</p>
+
+    <div class="accordion">
+      <div class="accordion-item">
+        <button aria-expanded="false">
+          <span class="accordion-title">What is FaNoWriMo?</span>
+          <span class="icon" aria-hidden="true"></span>
+        </button>
+        <div class="accordion-content">
+          <p><b>FaNoWriMo</b> stands for Fantasy Novel Writing Month. It's a yearly writing challenge for fantasy writers, hosted entirely on Discord. 
+            <br><br> In this event you are challenged to write 50k words. This can be done in an exiting manuscript or an entirely new one. It's up to you!
+            <br><br> Our discord tool allows members to register their novel, track its progress, upload a cover, and customize it however you like!</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button aria-expanded="false">
+          <span class="accordion-title">How is FaNoWriMo different from NaNoWriMo?</span>
+          <span class="icon" aria-hidden="true"></span>
+        </button>
+        <div class="accordion-content">
+          <p><b>Nanowrimo</b> was a well-known writing challenge that took place every November, where writers aim to complete a 50,000-word novel in 30 days. 
+            <br><br>FaNoWriMo is similar but tailored specifically for the fantasy genre and hosted on our Discord server, allowing for direct interaction and support among fantasy writers.
+          </p>
+          <blockquote>
+            <p><b>Disclaimer: NaNoWriMo is no longer an active organization as of 2025.</b></p>
+          </blockquote>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button aria-expanded="false">
+          <span class="accordion-title">Where can I access the FaNoWriMo bot?</span>
+          <span class="icon" aria-hidden="true"></span>
+        </button>
+        <div class="accordion-content">
+          <p>The FaNoWriMo bot is available only on our official FantasyWriters Discord server. It’s not a public bot, so you’ll need to join the server to use it.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button aria-expanded="false">
+          <span class="accordion-title">Do I need to install anything?</span>
+          <span class="icon" aria-hidden="true"></span>
+        </button>
+        <div class="accordion-content">
+          <p>Nope! Everything runs within our Discord server. Just join the server and start using the bot commands in the appropriate channels.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button aria-expanded="false">
+          <span class="accordion-title">How do I track my word count?</span>
+          <span class="icon" aria-hidden="true"></span>
+        </button>
+        <div class="accordion-content">
+          <p>Simply use the bot commands like <code>/addwords</code> or <code>/setgoal</code> within the Discord server. The bot will update your stats and help you stay on track.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button aria-expanded="false">
+          <span class="accordion-title">Can I participate with a project I've already started?</span>
+          <span class="icon" aria-hidden="true"></span>
+        </button>
+        <div class="accordion-content">
+          <p>Absolutely. You're free to work on a project in progress or start fresh. Just be honest with your word counts and goals—this is all about helping you finish!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+  <script>
+    document.querySelectorAll('.accordion button').forEach(button => {
+      button.addEventListener('click', () => {
+        const expanded = button.getAttribute('aria-expanded') === 'true';
+        document.querySelectorAll('.accordion button').forEach(b => b.setAttribute('aria-expanded', 'false'));
+        if (!expanded) button.setAttribute('aria-expanded', 'true');
+      });
+    });
+  </script>
 
 <footer>
   <div class="footer-container">
@@ -144,6 +237,8 @@
       </a>
     </div>
   </div>
+
+
   <div class="footer-copy">
     © 2025 FantasyWriters. All rights reserved.
   </div>

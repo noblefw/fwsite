@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="CSS/stylesheet.css" />
   <script src="Scripts/navbar.js" defer></script>
   <script src="Scripts/sprints.js" defer></script>
+  <script src="Scripts/darkmode.js" defer></script>
   <link rel="icon" href="Images/FW-logo.png" type="image/png" />
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
@@ -19,7 +20,7 @@
   <div class="navbar">
     <div class="navbar-left">
       <a href="index.html">
-        <img src="Images/Title_logo.png" alt="FantasyWriters Logo" />
+        <img id="site-logo" src="Images/Title_logo.png" alt="FantasyWriters Logo" />
       </a>
     </div>
     <button class="hamburger" aria-label="Toggle menu" role="button">
@@ -107,6 +108,15 @@
 
       <button id="start-btn" class="btn" onclick="toggleSprint()">Start Sprint</button>
       <button class="btn" onclick="resetSprint()">Reset Sprint</button>
+      
+      <div class="darkmode-toggle-wrapper">
+      <label for="darkmode-toggle">Toggle Darkmode:</label>
+      <label class="switch">
+        <input type="checkbox" id="darkmode-toggle" onchange="toggleDarkMode()" />
+        <span class="slider round"></span>
+        </label>
+      </div>
+
     </section>
 
     <section class="sprint-card" id="sprint-card">

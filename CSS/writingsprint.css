@@ -1,14 +1,28 @@
 /* Writing Sprint Page */
 .sprint-page {
+  position: relative;
+  min-height: 800px;  /* adjust to fit your content */
   padding: 1rem 2rem;
   text-align: left;
   width: 20%;
   margin: 0;
-  position: relative;
   top: 0;
   z-index: 5; /* Ensure it’s below settings and card */
   background-color: #e2e1e1;
   box-shadow: rgba(85, 84, 85, 0.041) 3px 0px 0px;
+  
+}
+
+.attribution {
+  display: block;
+  position: relative;
+  top: 550px;
+  font-style: italic;
+  color: #555;
+  background-color: #ffffff5d;
+  padding: 10px 20px;
+  margin: 20px 0;
+  font-size: 0.9em;
 }
 
 /* Layout container for settings and card */
@@ -26,7 +40,7 @@
 .sprint-settings {
   position: absolute;
   left: 2rem;
-  top: 250px; /* Adjusted to appear below header and sprint-page content */
+  top: 260px; /* Adjusted to appear below header and sprint-page content */
   width: 250px;
   display: flex;
   flex-direction: column;
@@ -51,7 +65,8 @@
   align-items: center;
   justify-content: center;
   z-index: 0;
-
+  transition: opacity 0.1s linear;
+  opacity: 1;
 }
 
 /* Card content box */
@@ -102,17 +117,6 @@
   background-color: rgb(80, 134, 82);
 }
 
-
-.attribution {
-  display: block;
-  font-style: italic;
-  color: #555;
-  background-color: #ffffff5d;
- 
-  padding: 10px 20px;
-  margin: 600px 0;
-  font-size: 0.9em;
-}
 
 .motivation-text {
   text-align: center;
@@ -248,4 +252,126 @@
   border: 6px solid transparent;
   border-top-color: #333;
   z-index: 1001;
+}
+
+
+
+/* === Dark Mode Toggle Switch === */
+.darkmode-toggle-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 1rem 0;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #77946e;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+/* === Dark Mode Styles === */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode .sprint-page {
+  background-color: #1e1e1e;
+}
+
+body.dark-mode .sprint-settings {
+  background-color: transparent;
+}
+
+body.dark-mode .sprint-settings label {
+  color: white;
+}
+
+body.dark-mode .navbar  {
+  background-color: transparent;
+}
+
+body.dark-mode header  {
+  background-color: rgb(63, 63, 63);
+  color: white;
+}
+
+body.dark-mode .navbar a {
+  color: white;
+}
+
+body.dark-mode .dropdown-content, .dropdown-section-title {
+  color: white;
+  background-color: rgb(63, 63, 63);
+}
+
+body.dark-mode .navbar a:hover {
+  color: rgb(124, 121, 121);
+}
+
+body.dark-mode .btn {
+  background-color: #556b52;
+  color: white;
+}
+
+body.dark-mode .btn:hover {
+  background-color: #77946e;
+}
+
+body.dark-mode select,
+body.dark-mode input[type="range"] {
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+  border: 1px solid #555;
+}
+
+body.dark-mode .tooltip {
+  background-color: #444;
+  color: #fff;
+}
+
+body.dark-mode .tooltip:hover::after {
+  background-color: #222;
+}
+
+body.dark-mode .attribution {
+  background-color: #2d2d2d;
+  color: #aaa;
 }

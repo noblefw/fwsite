@@ -3,6 +3,8 @@ header {
   background-color: #c8ceaa;
   padding: 0 2rem;
   box-shadow: 0 1px 2px 1px rgba(161, 160, 160, 0.2);
+
+  
 }
 
 /* NAVBAR LAYOUT */
@@ -13,6 +15,8 @@ header {
   max-width: 1200px;
   margin: 0 auto; /* Centered navbar, removed left margin for consistency */
   justify-content: space-between;
+
+  
 }
 
 /* LEFT SECTION (LOGO + TITLE) */
@@ -204,4 +208,56 @@ header {
   .arrow-down {
     float: right;
   }
+}
+
+/* Table of Contents container */
+.toc {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 15px 20px;
+  margin-bottom: 30px;
+  border-radius: 6px;
+  max-width: 600px;
+  font-family: Arial, sans-serif;
+}
+
+/* ToC heading */
+.toc h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  border-bottom: 2px solid #666;
+  padding-bottom: 5px;
+  color: #333;
+}
+
+/* ToC list */
+.toc ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 15px 0 0 0;
+}
+
+/* ToC main items */
+.toc > ul > li {
+  margin-bottom: 10px;
+}
+
+/* Nested sub-list */
+.toc ul ul {
+  margin-top: 5px;
+  margin-left: 20px;
+}
+
+/* Links inside ToC */
+.toc a {
+  color: #565c5f;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.toc a:hover,
+.toc a:focus {
+  color: #000000;
+  text-decoration: underline;
+  outline: none;
 }
