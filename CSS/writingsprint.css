@@ -337,13 +337,18 @@ body.dark-mode .navbar a {
   color: white;
 }
 
-body.dark-mode .dropdown-content, .dropdown-section-title {
+body.dark-mode .dropdown-content {
+  color: white;
+  background-color: rgb(63, 63, 63);
+}
+
+body.dark-mode .dropdown-section-title {
   color: white;
   background-color: rgb(63, 63, 63);
 }
 
 body.dark-mode .navbar a:hover {
-  color: rgb(124, 121, 121);
+color: rgb(124, 121, 121);
 }
 
 body.dark-mode .btn {
