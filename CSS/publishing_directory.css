@@ -190,12 +190,6 @@
   font-weight: 400;
 }
 
-.info-card .btn {
-  margin-top: 10rem;
-  padding: 0.5rem 1rem;
-  font-size: 0.95rem;
-}
-
 .no-results {
   background: #e7f0d7; /* Matches your site's note style */
   padding: 1rem;

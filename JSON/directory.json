@@ -4,7 +4,6 @@
     "name": "Jamie Cowen (The Ampersand Agency)",
     "location": "UK",
     "genre": ["fantasy", "science fiction", "epic fantasy"],
-    "status": "open",
     "about": "Represents a wide range of genre fiction, including fantasy and science fiction, with clients like Tendai Huchu (The Library of the Dead) and Adrian Selby (Snakewood). Accepting queries via agency website.",
     "website": "http://www.theampersandagency.co.uk"
   },
@@ -13,7 +12,6 @@
     "name": "Rose Ferrao (P.S. Literary Agency)",
     "location": "Canada",
     "genre": ["fantasy", "science fiction", "YA fantasy"],
-    "status": "open",
     "about": "Seeks adult and crossover fantasy, with a background as an editorial assistant at Orbit Books. Welcomes submissions from neurodivergent writers. Query via agency website.",
     "website": "https://www.psliterary.com"
   },
@@ -22,7 +20,6 @@
     "name": "Julie Crisp (Julie Crisp Literary Agency)",
     "location": "UK",
     "genre": ["fantasy", "science fiction", "epic fantasy"],
-    "status": "open",
     "about": "Former head of Tor UK, specializes in fantasy and science fiction. Clients include John Gwynne (The Hunger of the Gods) and Devin Madson (We Ride the Storm). Query via agency website.",
     "website": "https://www.juliecrisp.co.uk"
   },
@@ -31,7 +28,6 @@
     "name": "Matt Bialer (Sanford J. Greenburger Associates)",
     "location": "USA",
     "genre": ["fantasy", "science fiction", "YA fantasy"],
-    "status": "open",
     "about": "Seeks fantasy and science fiction for a broad audience since 1985. Clients include Patrick Rothfuss (The Name of the Wind) and Jay Kristoff (Nevernight). Query via agency website.",
     "website": "https://www.sjga.com"
   },
@@ -40,7 +36,6 @@
     "name": "Michaela Whatnall (Dystel, Goderich & Bourret LLC)",
     "location": "USA",
     "genre": ["fantasy", "urban fantasy", "magical realism", "YA fantasy"],
-    "status": "open",
     "about": "Loves general fantasy, urban fantasy, and magical realism for teens and adults. Favorite book includes The Tea Dragon Society by K. O’Neill. Query via agency website.",
     "website": "https://www.dystel.com"
   },
@@ -49,7 +44,6 @@
     "name": "Tor Books",
     "location": "USA",
     "genre": ["fantasy", "science fiction", "epic fantasy", "urban fantasy"],
-    "status": "closed",
     "about": "Leading publisher of fantasy and science fiction, publishing works by authors like Brandon Sanderson and V.E. Schwab. Does not accept unsolicited manuscripts; requires agented submissions.",
     "website": "https://www.tor.com"
   },
@@ -58,7 +52,6 @@
     "name": "Orbit Books",
     "location": "USA/UK",
     "genre": ["fantasy", "science fiction", "urban fantasy", "epic fantasy"],
-    "status": "closed",
     "about": "Specializes in speculative genres, publishing authors like N.K. Jemisin and Joe Abercrombie. Accepts agented submissions only.",
     "website": "https://www.orbitbooks.net"
   },
@@ -67,7 +60,6 @@
     "name": "DAW Books",
     "location": "USA",
     "genre": ["fantasy", "science fiction", "epic fantasy"],
-    "status": "open",
     "about": "Renowned for fantasy and sci-fi, publishing authors like Tad Williams and C.J. Cherryh. Accepts unsolicited manuscripts; check submission guidelines on website.",
     "website": "https://www.dawbooks.com"
   },
@@ -76,7 +68,6 @@
     "name": "Gollancz",
     "location": "UK",
     "genre": ["fantasy", "science fiction", "epic fantasy"],
-    "status": "closed",
     "about": "One of the UK’s oldest fantasy publishers, with authors like Ben Aaronovitch and Joanne Harris. Requires agented submissions.",
     "website": "https://www.gollancz.co.uk"
   },
@@ -85,7 +76,6 @@
     "name": "Titan Books",
     "location": "UK",
     "genre": ["fantasy", "science fiction", "urban fantasy"],
-    "status": "open",
     "about": "Publishes fantasy and sci-fi with a focus on innovative storytelling, including works by Sarah J. Maas. Accepts unsolicited submissions; see website for guidelines.",
     "website": "https://www.titanbooks.com"
   }
