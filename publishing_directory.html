@@ -10,8 +10,8 @@
   <link rel="stylesheet" href="CSS/publishing_directory.css" />
   <script src="Scripts/navbar.js" defer></script>
   <script src="Scripts/publishing_directory.js" defer></script>
-  <script src="Scripts/querybutton.js" defer></script>
   <script src="Scripts/directory.js" defer></script>
+  <script src="Scripts/querybutton.js" defer></script>
   <link rel="icon" href="Images/FW-logo.png" type="image/png" />
 </head>
 <body>
@@ -85,9 +85,17 @@
             <select id="genre-filter" name="genre">
               <option value="">All Genres</option>
               <option value="fantasy">Fantasy</option>
-              <option value="sci-fi">Sci-Fi</option>
-              <option value="epic">Epic Fantasy</option>
-              <option value="urban">Urban Fantasy</option>
+              <option value="high-fantasy">High Fantasy</option>
+              <option value="epic-fantasy">Epic Fantasy</option>
+              <option value="urban-fantasy">Urban Fantasy</option>
+              <option value="low-fantasy">Low Fantasy</option>
+              <option value="dark-fantasy">Dark Fantasy</option>
+              <option value="grimdark">Grimdark</option>
+              <option value="historical-fantasy">Historical Fantasy</option>
+              <option value="portal-fantasy">Portal Fantasy</option>
+              <option value="young-adult-fantasy">Young Adult Fantasy</option>
+              <option value="fantasy-romance">Fantasy Romance</option>
+              <option value="magical-realism">Magical Realism</option>
             </select>
           </div>
           <div class="filter-group">
@@ -123,7 +131,9 @@
           <p id="results-count">Showing <span id="count">0</span> agents/publishers</p>
         </div>
         <div id="results-container">
-          <div class="no-results" style="display: none;">No agents or publishers match your criteria. Try adjusting your filters.</div>
+          <div class="no-results" style="display: none;">
+            No agents or publishers match your criteria. Try adjusting your filters.
+          </div>
         </div>
       </section>
     </div>
