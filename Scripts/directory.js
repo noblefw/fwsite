@@ -1,5 +1,9 @@
 let allData = []; // store loaded data globally
 
+function getKey(name) {
+  return 'queryState-' + name.toLowerCase().replace(/\s+/g, '-');
+}
+
 async function loadDirectory() {
   try {
     const response = await fetch('JSON/directory.json');
@@ -36,13 +40,10 @@ function renderDirectory(data) {
     card.dataset.location = item.location.toLowerCase();
     card.dataset.name = item.name.toLowerCase();
 
-    // Load saved query state from localStorage
-    const queryState = localStorage.getItem('queryState-' + item.name) || 'none';
-
     card.innerHTML = `
       <div class="query-buttons">
-        <button class="query-btn queried-btn ${queryState === 'queried' ? 'active' : ''}" onclick="setQueried(this)">Queried</button>
-        <button class="query-btn not-queried-btn ${queryState === 'not-queried' ? 'active' : ''}" onclick="setNotQueried(this)">Not Queried</button>
+        <button class="query-btn queried-btn" onclick="setQueried(this)">Queried</button>
+        <button class="query-btn not-queried-btn" onclick="setNotQueried(this)">Not Queried</button>
       </div>
       <h3>${item.name}</h3>
       <p><strong>Type:</strong> ${item.type.charAt(0).toUpperCase() + item.type.slice(1)}</p>
@@ -56,24 +57,38 @@ function renderDirectory(data) {
     container.appendChild(card);
   });
 
+  // After cards are added, update buttons states from localStorage
+  updateAllQueryButtons();
+
   document.getElementById('count').textContent = data.length;
+}
+
+function updateAllQueryButtons() {
+  const cards = document.querySelectorAll('.info-card');
+  cards.forEach(card => {
+    const name = card.dataset.name;
+    const key = getKey(name);
+    const savedState = localStorage.getItem(key) || 'none';
+
+    updateQueryButtons(card, savedState);
+  });
 }
 
 function setQueried(button) {
   const card = button.closest('.info-card');
   const name = card.dataset.name;
+  const key = getKey(name);
 
-  localStorage.setItem('queryState-' + name, 'queried');
-
+  localStorage.setItem(key, 'queried');
   updateQueryButtons(card, 'queried');
 }
 
 function setNotQueried(button) {
   const card = button.closest('.info-card');
   const name = card.dataset.name;
+  const key = getKey(name);
 
-  localStorage.setItem('queryState-' + name, 'not-queried');
-
+  localStorage.setItem(key, 'not-queried');
   updateQueryButtons(card, 'not-queried');
 }
 
@@ -82,11 +97,14 @@ function updateQueryButtons(card, state) {
   const notQueriedBtn = card.querySelector('.not-queried-btn');
 
   if (state === 'queried') {
-    queriedBtn.classList.add('active');
-    notQueriedBtn.classList.remove('active');
+    queriedBtn.disabled = true;
+    notQueriedBtn.disabled = false;
   } else if (state === 'not-queried') {
-    queriedBtn.classList.remove('active');
-    notQueriedBtn.classList.add('active');
+    queriedBtn.disabled = false;
+    notQueriedBtn.disabled = true;
+  } else {
+    queriedBtn.disabled = false;
+    notQueriedBtn.disabled = false;
   }
 }
 
@@ -123,6 +141,7 @@ function filterDirectory() {
         return false;
       }
     }
+
     return true;
   });
 
