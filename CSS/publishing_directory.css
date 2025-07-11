@@ -164,10 +164,6 @@
   background-color: #7c6746; /* darker brown or different color */
 }
 
-.query-btn.not-queried-btn.active {
-  background-color: #5c7048; /* keep this green */
-}
-
 
 .query-btn:hover {
   background-color: #435435;

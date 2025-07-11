@@ -43,7 +43,6 @@ function renderDirectory(data) {
     card.innerHTML = `
       <div class="query-buttons">
         <button class="query-btn queried-btn" onclick="setQueried(this)">Queried</button>
-        <button class="query-btn not-queried-btn" onclick="setNotQueried(this)">Not Queried</button>
       </div>
       <h3>${item.name}</h3>
       <p><strong>Type:</strong> ${item.type.charAt(0).toUpperCase() + item.type.slice(1)}</p>
@@ -83,28 +82,15 @@ function setQueried(button) {
   updateQueryButtons(card, 'queried');
 }
 
-function setNotQueried(button) {
-  const card = button.closest('.info-card');
-  const name = card.dataset.name;
-  const key = getKey(name);
-
-  localStorage.setItem(key, 'not-queried');
-  updateQueryButtons(card, 'not-queried');
-}
-
 function updateQueryButtons(card, state) {
   const queriedBtn = card.querySelector('.queried-btn');
-  const notQueriedBtn = card.querySelector('.not-queried-btn');
 
   if (state === 'queried') {
     queriedBtn.disabled = true;
-    notQueriedBtn.disabled = false;
-  } else if (state === 'not-queried') {
-    queriedBtn.disabled = false;
-    notQueriedBtn.disabled = true;
+    queriedBtn.classList.add('active');
   } else {
     queriedBtn.disabled = false;
-    notQueriedBtn.disabled = false;
+    queriedBtn.classList.remove('active');
   }
 }
 
