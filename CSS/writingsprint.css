@@ -141,52 +141,7 @@
   margin-top: 1rem;
 }
 
-@media (max-width: 768px) {
-  .sprint-page {
-    width: 30%; /* or try 25% or even 20% if needed */
-    padding: 0.5rem;
-  }
 
-  .sprint-page h1 {
-    font-size: 20px;
-  }
-
-    .sprint-page p {
-    font-size: 14px;
-  }
-
-  .sprint-layout {
-    display: flex;
-    flex-direction: row;
-    overflow-x: auto;
-    padding: 0 1rem;
-  }
-
-  /* Settings smaller and fixed left but narrower */
-  .sprint-settings {
-    position: absolute;
-    top: 240px;
-    left: 0.1rem;
-    width: 200px;  /* smaller width */
-    gap: 0.8rem;
-    padding: 0.5rem;
-    font-size: 0.9rem;
-    z-index: 10;
-  }
-
-  /* Sprint card fixed right, smaller width and height */
-  .sprint-card {
-    position: absolute;
-    top: 200px;
-    right: 0.4rem;
-    width: 480px;  /* much smaller */
-    height: 300px; /* smaller height */
-    padding: 1rem;
-    border-radius: 8px;
-    background-size: cover;
-    background-position: center;
-    color: white;
-  }
 
   /* Sprint info box inside card smaller */
   .sprint-info {
@@ -206,7 +161,9 @@
   .motivation-text {
     font-size: 0.9rem;
   }
-}
+
+
+  
 
 .tooltip {
   display: inline-block;
@@ -255,6 +212,130 @@
 }
 
 
+@media (max-width: 480px) {
+/* Settings smaller and fixed left but narrower */
+  .sprint-settings {
+    position: absolute;
+    top: 240px;
+    left: 0.1rem;
+    gap: 0.8rem;
+    font-size: 0.9rem;
+    z-index: 10;
+    width: 30%; /* or try 25% or even 20% if needed */
+    padding: 0.5rem;
+
+  }
+
+  /* Sprint card fixed right, smaller width and height */
+  .sprint-card {
+    position: absolute;
+    top: 200px;
+    right: 0.5rem;
+    width: 62%;  /* much smaller */
+    height: 300px; /* smaller height */
+    padding: 1rem;
+    border-radius: 8px;
+    background-size: cover;
+    background-position: center;
+    color: white;
+  }
+  }
+
+
+@media (max-width: 768px) {
+  /* Settings smaller and fixed left but narrower */
+  .sprint-settings {
+    position: absolute;
+    top: 240px;
+    left: 0.1rem;
+    gap: 0.8rem;
+    font-size: 0.9rem;
+    z-index: 10;
+    width: 30%; /* or try 25% or even 20% if needed */
+    padding: 0.5rem;
+
+  }
+
+  /* Sprint card fixed right, smaller width and height */
+  .sprint-card {
+    position: absolute;
+    top: 200px;
+    right: 0.5rem;
+    width: 62%;  /* much smaller */
+    height: 300px; /* smaller height */
+    padding: 1rem;
+    border-radius: 8px;
+    background-size: cover;
+    background-position: center;
+    color: white;
+  }
+  }
+
+  @media (max-width: 1024px) {
+  /* Sprint card fixed right, smaller width and height */
+  .sprint-card {
+    position: absolute;
+    top: 200px;
+    right: 0.5rem;
+    width: 62%;  /* much smaller */
+    height: 300px; /* smaller height */
+    padding: 1rem;
+    border-radius: 8px;
+    background-size: cover;
+    background-position: center;
+    color: white;
+  }
+  }
+  
+
+@media (max-width: 1200px) {
+  .sprint-page {
+    width: 30%; /* or try 25% or even 20% if needed */
+    padding: 0.5rem;
+  }
+
+  .sprint-page h1 {
+    font-size: 20px;
+  }
+
+    .sprint-page p {
+    font-size: 14px;
+  }
+
+  .sprint-layout {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 0 1rem;
+  }
+
+  /* Settings smaller and fixed left but narrower */
+  .sprint-settings {
+    position: absolute;
+    top: 240px;
+    left: 0.1rem;
+    gap: 0.8rem;
+    font-size: 0.9rem;
+    z-index: 10;
+    width: 30%; /* or try 25% or even 20% if needed */
+    padding: 0.5rem;
+
+  }
+
+  /* Sprint card fixed right, smaller width and height */
+  .sprint-card {
+    position: absolute;
+    top: 200px;
+    right: 0.5rem;
+    width: 64%;  /* much smaller */
+    height: 400px; /* smaller height */
+    padding: 1rem;
+    border-radius: 8px;
+    background-size: cover;
+    background-position: center;
+    color: white;
+  }
+  }
 
 /* === Dark Mode Toggle Switch === */
 .darkmode-toggle-wrapper {

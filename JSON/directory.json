@@ -1,0 +1,20 @@
+[
+  {
+    "type": "agent",
+    "name": "Jane Doe Agency",
+    "location": "USA",
+    "genre": ["fantasy", "epic"],
+    "status": "open",
+    "about": "Specializes in fantasy novels with strong world-building. Accepting queries via email.",
+    "website": "https://janedoeagency.com"
+  },
+  {
+    "type": "publisher",
+    "name": "Fantasy Press",
+    "location": "UK",
+    "genre": ["sci-fi", "urban"],
+    "status": "closed",
+    "about": "Publishes innovative speculative fiction. Check back for submission windows.",
+    "website": "https://fantasypress.com"
+  }
+]

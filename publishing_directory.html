@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FantasyWriters | Publishing Directory</title>
+  <link rel="stylesheet" href="CSS/navbar.css" />
+  <link rel="stylesheet" href="CSS/footer.css" />
+  <link rel="stylesheet" href="CSS/stylesheet.css" />
+  <link rel="stylesheet" href="CSS/publishing_directory.css" />
+  <script src="Scripts/navbar.js" defer></script>
+  <script src="Scripts/publishing_directory.js" defer></script>
+  <script src="Scripts/querybutton.js" defer></script>
+  <script src="Scripts/directory.js" defer></script>
+  <link rel="icon" href="Images/FW-logo.png" type="image/png" />
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="navbar-left">
+        <a href="index.html">
+          <img src="Images/Title_logo.png" alt="FantasyWriters Logo" />
+        </a>
+      </div>
+      <button class="hamburger" aria-label="Toggle menu" role="button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="navbar-links">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+          <a href="#" class="dropbtn">Resources <span class="arrow-down"></span></a>
+          <div class="dropdown-content">
+            <div class="dropdown-section-title">Writing Tools</div>
+            <a href="writingsprint.html">Writing Sprint</a>
+            <a href="fanowrimo.html">FaNoWriMo</a>
+            <div class="dropdown-section-title">Generators</div>
+            <a href="namegenerator.html">Name Generator</a>
+          </div>
+        </div>
+        <a href="about.html">About</a>
+        <a href="404.html">Community</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
+    </div>
+  </header>
+
+<section class="directory-intro">
+  <div class="intro-content">
+    <div class="intro-image">
+      <img src="Images/quill_scroll.png" alt="Fantasy scroll and quill" />
+    </div>
+
+    <div class="vertical-divider"></div>
+
+    <div class="intro-text">
+      <h1>Publishing Directory</h1>
+      <p>
+        Discover literary agents and publishers who specialize in fantasy. Use the filters on the left to narrow your search based on genre, submission status, location, and more.
+      </p>
+    </div>
+  </div>
+</section>
+
+  <main class="directory-page">
+    <div class="directory-container">
+      <!-- Filter Sidebar -->
+      <aside class="filter-sidebar">
+        <h2>Find Agents & Publishers</h2>
+        <form id="filter-form">
+          <div class="filter-group">
+            <input type="text" id="search-input" placeholder="Search by name..." aria-label="Search agents or publishers by name">
+          </div>
+          <div class="filter-group">
+            <label for="type-filter">Type</label>
+            <select id="type-filter" name="type">
+              <option value="">All Types</option>
+              <option value="agent">Literary Agent</option>
+              <option value="publisher">Publisher</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="genre-filter">Genre</label>
+            <select id="genre-filter" name="genre">
+              <option value="">All Genres</option>
+              <option value="fantasy">Fantasy</option>
+              <option value="sci-fi">Sci-Fi</option>
+              <option value="epic">Epic Fantasy</option>
+              <option value="urban">Urban Fantasy</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="status-filter">Submission Status</label>
+            <select id="status-filter" name="status">
+              <option value="">All Statuses</option>
+              <option value="open">Open to Submissions</option>
+              <option value="closed">Closed to Submissions</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="location-filter">Location</label>
+            <select id="location-filter" name="location">
+              <option value="">All Locations</option>
+              <option value="usa">USA</option>
+              <option value="uk">UK</option>
+              <option value="canada">Canada</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <button type="button" class="btn" onclick="clearFilters()">Clear Filters</button>
+        <div class="filter-links">
+  <hr />
+  <p><a href="terms.html">Terms of Service</a> | <a href="privacy.html">Privacy Policy</a></p>
+</div>
+        </form>
+      </aside>
+
+      <!-- Results Section -->
+      <section class="results">
+        <div class="results-header">
+          <h2>Results</h2>
+          <p id="results-count">Showing <span id="count">0</span> agents/publishers</p>
+        </div>
+        <div id="results-container">
+          <div class="no-results" style="display: none;">No agents or publishers match your criteria. Try adjusting your filters.</div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <h4>About</h4>
+        <a href="about.html" aria-label="About FantasyWriters">About Us</a>
+        <a href="contact.html" aria-label="Contact FantasyWriters">Contact Us</a>
+        <a href="contact.html" aria-label="Partnerships with FantasyWriters">Partnerships</a>
+        <a href="faq.html" aria-label="Frequently Asked Questions">Frequently Asked Questions</a>
+      </div>
+      <div class="footer-column">
+        <h4>Resources</h4>
+        <a href="writingsprint.html" aria-label="Writing Sprint Tool">Writing Sprint</a>
+        <a href="namegenerator.html" aria-label="Name Generator Tool">Name Generator</a>
+      </div>
+      <div class="footer-column">
+        <h4>Community</h4>
+        <a href="https://discord.com/invite/7nu2Zz8StN" target="_blank" rel="noopener" aria-label="Join our Discord community">
+          <img src="Images/Discord_Logo.png" alt="Discord logo" class="footer-icon" /> Discord
+        </a>
+        <a href="https://www.reddit.com/r/fantasywriters/" target="_blank" rel="noopener" aria-label="Join our Reddit community">
+          <img src="Images/Reddit_Logo.png" alt="Reddit logo" class="footer-icon" /> Reddit
+        </a>
+      </div>
+    </div>
+    <div class="footer-copy">
+      © 2025 FantasyWriters. All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>
