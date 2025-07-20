@@ -1,0 +1,225 @@
+/* Reuse most register styles but scoped to login-container */
+
+.login-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 4rem;
+  padding: 5rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+#login-form.left {
+  flex: 1;
+  max-width: 400px;
+  background-color: #fcfcfc;
+  padding: 2rem 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(122, 132, 80, 0.2);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#login-form.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#login-form h3 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #7a8450;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.input-group {
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+#login-form label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+  color: #4b5221;
+  transition: transform 0.3s ease;
+}
+
+#login-form input {
+  width: 90%;
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 1rem;
+  border: 1.5px solid #c8ceaa;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+#login-form input:focus {
+  border-color: #7a8450;
+  outline: none;
+  transform: scale(1.02);
+  box-shadow: 0 0 0 3px rgba(122, 132, 80, 0.1);
+}
+
+#login-form input.error {
+  border: 2px solid red;
+  background-color: #ffe6e6;
+  animation: shake 0.3s ease;
+}
+
+.submit-btn {
+  width: 100%;
+  background-color: #7a8450;
+  border: none;
+  color: white;
+  font-weight: 700;
+  padding: 0.75rem;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submit-btn:hover {
+  background-color: #5c6538;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(122, 132, 80, 0.3);
+}
+
+.submit-btn:disabled {
+  background-color: #a3a88b;
+  cursor: not-allowed;
+}
+
+.loader {
+  border: 3px solid #ffffff;
+  border-top: 3px solid #7a8450;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+}
+
+.loader.hidden {
+  display: none;
+}
+
+.btn-text.hidden {
+  display: none;
+}
+
+.success-message {
+  text-align: center;
+  color: #7a8450;
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  padding: 0.8rem;
+  background: #f0f2e9;
+  border-radius: 6px;
+  display: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.success-message.fade-in {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.error-message {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 0rem;
+  margin-bottom: 0.2rem;
+  display: none;
+}
+
+.error-message.show {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+.form {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.form a {
+  color: #7a8450;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.form a:hover {
+  text-decoration: underline;
+  color: #5c6538;
+}
+
+.login-info.right {
+  flex: 1;
+  max-width: 500px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s;
+}
+
+.login-info.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.login-info h2 {
+  color: #7a8450;
+  margin-bottom: 1rem;
+}
+
+.login-info p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media screen and (max-width: 768px) {
+  .login-container {
+    padding: 2rem 1rem;
+    flex-direction: column;
+  }
+
+  #login-form.left,
+  .login-info.right {
+    max-width: 100%;
+  }
+}
+

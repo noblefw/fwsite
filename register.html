@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FantasyWriters | Register</title>
+  <link rel="stylesheet" href="CSS/navbar.css" />
+  <link rel="stylesheet" href="CSS/footer.css" />
+  <link rel="stylesheet" href="CSS/stylesheet.css" />
+  <link rel="stylesheet" href="CSS/register.css" />
+  <script type="module" src="Scripts/register.js" defer></script>
+  <script type="module" src="Scripts/navbar.js"></script>
+  <link rel="icon" href="Images/FW-logo.png" type="image/png" />
+</head>
+<body>
+
+  <header>
+  <div class="navbar">
+    <div class="navbar-left">
+      <a href="index.html">
+        <img src="Images/Title_logo.png" alt="FantasyWriters Logo" />
+      </a>
+    </div>
+    <button class="hamburger" aria-label="Toggle menu" role="button">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="navbar-links">
+      <a href="index.html">Home</a>
+      <div class="dropdown">
+        <a href="#" class="dropbtn">Resources <span class="arrow-down"></span></a>
+        <div class="dropdown-content">
+          <div class="dropdown-section-title">Writing Tools</div>
+          <a href="writingsprint.html">Writing Sprint</a>
+          <a href="fanowrimo.html">FaNoWriMo</a>
+          <div class="dropdown-section-title">Generators</div>
+          <a href="namegenerator.html">Name Generator</a>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+      <a href="404.html">Community</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+
+    <div id="auth-sensitive-nav" class="hidden">
+      <div class="auth-buttons">
+        <a href="login.html" class="login-btn">Login</a>
+        <a href="register.html" class="register-btn">Register</a>
+      </div>
+
+      <div class="profile-menu hidden">
+        <button class="profile-btn">Profile ▾</button>
+        <div class="profile-dropdown">
+          <a href="dashboard.html">Settings</a>
+          <button id="logout-btn">Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="register-container">
+  <form id="register-form" novalidate class="left">
+    <h3>Create Your Account</h3>
+    <div class="input-group">
+      <label for="email">Email</label>
+      <input type="email" placeholder="Enter your email" id="email" required />
+      <div class="error-message" id="email-error">Please enter a valid email address.</div>
+      <div class="error-message" id="email-exists-error">An account with this email already exists.</div>
+      <div class="register-tip">A confirmation will be sent to your email.</div>
+    </div>
+
+    <div class="input-group">
+      <label for="password">Password</label>
+      <input type="password" placeholder="Create a password" id="password" required />
+      <div class="error-message" id="password-error">Password must be 6 to 32 characters.</div>
+      <div class="register-tip">Use 6 to 32 characters.</div>
+    </div>
+
+    <div class="input-group">
+      <label for="repeat-password">Repeat Password</label>
+      <input type="password" placeholder="Repeat your password" id="repeat-password" required />
+      <div class="error-message" id="repeat-password-error">Passwords do not match.</div>
+      <div class="register-tip">Re-enter your password to confirm.</div>
+    </div>
+
+    <button id="submit" type="submit" class="submit-btn">
+      <span class="btn-text">Create Account</span>
+      <span class="loader hidden"></span>
+    </button>
+
+    <div class="success-message hidden" id="success-message">
+      Account created successfully! Check your email for confirmation.
+    </div>
+
+    <div class="form">
+      <p>Already have an account? <a href="login.html">Login Here</a></p>
+    </div>
+  </form>
+
+  <div class="register-info right">
+    <h2>Join the FantasyWriters Community</h2>
+    <p>Unlock a world of creativity with FantasyWriters! Connect with fellow writers, access exclusive tools like Writing Sprints and Name Generators, and bring your stories to life. Sign up today to start your journey!</p>
+  </div>
+</div>
+
+</body>
+</html>

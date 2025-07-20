@@ -2,16 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>404 | FantasyWriters</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FantasyWriters | Login</title>
   <link rel="stylesheet" href="CSS/navbar.css" />
   <link rel="stylesheet" href="CSS/footer.css" />
   <link rel="stylesheet" href="CSS/stylesheet.css" />
+  <link rel="stylesheet" href="CSS/login.css" />
+  <script type="module" src="Scripts/login.js" defer></script>
   <script type="module" src="Scripts/navbar.js"></script>
-  <link rel="icon" href="Images/FW-logo.png" type="image/png" />
 </head>
 <body>
-   
+
 <header>
   <div class="navbar">
     <div class="navbar-left">
@@ -57,41 +58,45 @@
     </div>
   </div>
 </header>
+<div class="login-container">
+  <form id="login-form" novalidate class="left">
+    <h3>Welcome Back</h3>
 
-  <main class="error-page">
-    <img src="Images/FW-logo.png" alt="FantasyWriters Logo" class="error-logo" />
-    <h1>404 ERROR</h1>
-    <p>We're so sorry, but this page is still a work in progress.</p>
-  </main>
+    <div class="input-group">
+      <label for="email">Email</label>
+      <input type="email" placeholder="Enter your email" id="email" required />
+      <div class="error-message" id="email-error">Please enter a valid email address.</div>
+    </div>
 
-<footer>
-  <div class="footer-container">
-    <div class="footer-column">
-      <h4>About</h4>
-      <a href="about.html" aria-label="About FantasyWriters">About Us</a>
-      <a href="contact.html" aria-label="Contact FantasyWriters">Contact Us</a>
-      <a href="contact.html" aria-label="Partnerships with FantasyWriters">Partnerships</a>
-      <a href="faq.html" aria-label="Frequently Asked Questions">Frequently Asked Questions</a>
+    <div class="input-group">
+      <label for="password">Password</label>
+      <input type="password" placeholder="Enter your password" id="password" required />
+      <div class="error-message" id="password-error">Password must be 6 to 32 characters.</div>
     </div>
-    <div class="footer-column">
-      <h4>Resources</h4>
-      <a href="writingsprint.html" aria-label="Writing Sprint Tool">Writing Sprint</a>
-      <a href="namegenerator.html" aria-label="Name Generator Tool">Name Generator</a>
+
+    <button id="submit" type="submit" class="submit-btn">
+      <span class="btn-text">Login</span>
+      <span class="loader hidden"></span>
+    </button>
+
+    <div class="error-message" id="login-error"></div>
+
+    <div class="success-message hidden" id="success-message">
+      Successfully logged in!
     </div>
-    <div class="footer-column">
-      <h4>Community</h4>
-      <a href="https://discord.com/invite/7nu2Zz8StN" target="_blank" rel="noopener" aria-label="Join our Discord community">
-        <img src="Images/Discord_Logo.png" alt="Discord logo" class="footer-icon" /> Discord
-      </a>
-      <a href="https://www.reddit.com/r/fantasywriters/" target="_blank" rel="noopener" aria-label="Join our Reddit community">
-        <img src="Images/Reddit_Logo.png" alt="Reddit logo" class="footer-icon" /> Reddit
-      </a>
+
+    <div class="form">
+      <p>Don't have an account? <a href="register.html">Register Here</a></p>
+      <p><a href="forgot-password.html">Forgot Password?</a></p>
     </div>
+  </form>
+
+  <div class="login-info right">
+    <h2>Welcome to FantasyWriters</h2>
+    <p>Log in to continue your creative journey, manage your projects, and connect with the FantasyWriters community.</p>
   </div>
-  <div class="footer-copy">
-    © 2025 FantasyWriters. All rights reserved.
-  </div>
-</footer>
+</div>
+
 
 </body>
 </html>

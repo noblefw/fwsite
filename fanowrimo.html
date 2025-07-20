@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="CSS/navbar.css" />
   <link rel="stylesheet" href="CSS/footer.css" />
   <link rel="stylesheet" href="CSS/stylesheet.css" />
-  <script src="Scripts/navbar.js" defer></script>
+  <script type="module" src="Scripts/navbar.js"></script>
   <link rel="icon" href="Images/FW-logo.png" type="image/png" />
 </head>
 <body>
@@ -40,6 +40,21 @@
       <a href="404.html">Community</a>
       <a href="contact.html">Contact Us</a>
     </nav>
+
+    <div id="auth-sensitive-nav" class="hidden">
+      <div class="auth-buttons">
+        <a href="login.html" class="login-btn">Login</a>
+        <a href="register.html" class="register-btn">Register</a>
+      </div>
+
+      <div class="profile-menu hidden">
+        <button class="profile-btn">Profile ▾</button>
+        <div class="profile-dropdown">
+          <a href="dashboard.html">Settings</a>
+          <button id="logout-btn">Logout</button>
+        </div>
+      </div>
+    </div>
   </div>
 </header>
 
