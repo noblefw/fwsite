@@ -1,4 +1,4 @@
-import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+/*import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 const firebaseConfig = {
@@ -11,7 +11,6 @@ const firebaseConfig = {
   measurementId: "G-GXHW1BFKJ0"
 };
 
-
 // Init Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
@@ -23,12 +22,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const profileBtn = authWrapper.querySelector('.profile-btn');
   const logoutBtn = document.getElementById('logout-btn');
 
-  // Toggle dropdown visibility
+  // Toggle profile menu visibility
   profileBtn?.addEventListener('click', (e) => {
     e.stopPropagation();
     profileMenu.classList.toggle('show');
   });
 
+  // Close profile menu when clicking outside
   document.addEventListener('click', (e) => {
     if (!profileMenu.contains(e.target) && !profileBtn.contains(e.target)) {
       profileMenu.classList.remove('show');
@@ -53,6 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  */
+
   // Hamburger + dropdown mobile nav
   const hamburger = document.querySelector('.hamburger');
   const navLinks = document.querySelector('.navbar-links');
@@ -61,18 +63,34 @@ document.addEventListener('DOMContentLoaded', () => {
   hamburger?.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     navLinks.classList.toggle('active');
+    // Close all dropdowns when hamburger is toggled
+    dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
   });
 
   dropdowns.forEach(dropdown => {
     const dropbtn = dropdown.querySelector('.dropbtn');
+    const dropdownContent = dropdown.querySelector('.dropdown-content');
+
     dropbtn?.addEventListener('click', (e) => {
       if (window.innerWidth <= 768) {
         e.preventDefault();
+        // Toggle current dropdown, close others
+        dropdowns.forEach(otherDropdown => {
+          if (otherDropdown !== dropdown) {
+            otherDropdown.classList.remove('active');
+          }
+        });
         dropdown.classList.toggle('active');
       }
     });
+
+    // Prevent clicks on dropdown-content from closing the dropdown
+    dropdownContent?.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
   });
 
+  // Close nav and dropdowns when clicking outside
   document.addEventListener('click', (e) => {
     if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
       hamburger.classList.remove('active');
@@ -80,4 +98,3 @@ document.addEventListener('DOMContentLoaded', () => {
       dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
     }
   });
-});

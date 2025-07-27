@@ -3,18 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FantasyWriters | Home</title>
+  <title>FantasyWriters | Blog</title>
   <link rel="stylesheet" href="CSS/navbar.css" />
   <link rel="stylesheet" href="CSS/footer.css" />
   <link rel="stylesheet" href="CSS/stylesheet.css" />
+  <link rel="stylesheet" href="CSS/blog.css" />
   <script type="module" src="Scripts/navbar.js"></script>
+  <script src="Scripts/blog.js"></script> 
   <link rel="icon" href="Images/FW-logo.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&Lora:wght@400;700&Poppins:wght@400;500&Fira+Code:wght@400&display=swap" rel="stylesheet">
 </head>
 <body>
-  
   <header>
     <div class="navbar">
       <div class="navbar-left">
@@ -47,50 +48,55 @@
   </header>
 
   <main>
-    <!-- Hero Section -->
-<section class="hero-section">
-  <div class="hero-content">
-    <h1>Join Our Community.</h1>
-    <p>Connect with 10,000+ writers, share your stories, and get inspired.</p>
-    <div class="hero-buttons">
-      <a href="https://www.reddit.com/r/fantasywriters/" class="btn reddit-btn" target="_blank" rel="noopener" aria-label="Join our Reddit community">
-        <img src="Images/Reddit_Logo.png" alt="Reddit logo" class="btn-icon" /> Reddit
-      </a>
-      <a href="https://discord.com/invite/7nu2Zz8StN" class="btn discord-btn" target="_blank" rel="noopener" aria-label="Join our Discord community">
-        <img src="Images/Discord_Logo2.png" alt="Discord logo" class="btn-icon" /> Discord
-      </a>
-    </div>
-  </div>
-  <img src="Images/home-img.jpg" alt="Fantasy Landscape" class="hero-bg" />
-</section>
-
-<section class="tools-section">
-  <h2>Tools for Fantasy Writers</h2>
-  <div class="tools-container">
-    <div class="tool-item">
-      <h3>Writing Sprint</h3>
-      <p>Boost productivity with timed writing sessions designed for fantasy authors.</p>
-      <a href="writingsprint.html" class="btn">Try Writing Sprint</a>
-    </div>
-    <div class="tool-item">
-      <h3>Name Generator</h3>
-      <p>Create unique names for characters, kingdoms, and magical artifacts.</p>
-      <a href="namegenerator.html" class="btn">Generate Names</a>
-    </div>
-    <div class="tool-item">
-      <h3>Query List</h3>
-      <p>Browse through a list of fantasy publishers and agents.</p>
-      <a href="publishing_directory.html" class="btn">Browse</a>
-    </div>
-        <div class="tool-item">
-      <h3>FaNoWriMo</h3>
-      <p>Join our fantasy novel-writing challenge and write your masterpiece.</p>
-      <a href="fanowrimo.html" class="btn">Join the Challenge</a>
-    </div>
-  </div>
-</section>
-
-
+    <!-- Blog Section -->
+    <section class="blog-section">
+      <div class="blog-container">
+        <!-- Left Side: Blog Post Cards -->
+        <div class="blog-posts">
+          <h2>Latest Blog Posts</h2>
+          <div class="posts-grid">
+            <!-- Post Card 1 -->
+            <article class="post-card" data-category="ama">
+              <img src="Images/home-img.jpg" alt="Blog post image" class="post-image">
+              <span class="post-tag">AMA</span>
+              <h3>Behind the Scenes of Our Latest AMA</h3>
+              <p>Join us as we dive into the highlights of our recent Ask Me Anything session with top authors.</p>
+              <a href="#" class="read-link">Read More</a>
+            </article>
+            <!-- Post Card 2 -->
+            <article class="post-card" data-category="writing-tips">
+              <img src="Images/home-img.jpg" alt="Blog post image" class="post-image">
+              <span class="post-tag">Writing Tips</span>
+              <h3>Top 5 Tips for Aspiring Writers</h3>
+              <p>Discover essential advice to improve your writing craft and stay motivated.</p>
+              <a href="#" class="read-link">Read More</a>
+            </article>
+            <!-- Post Card 3 -->
+            <article class="post-card" data-category="interview">
+              <img src="Images/home-img.jpg" alt="Blog post image" class="post-image">
+              <span class="post-tag">Interview</span>
+              <h3>Exclusive Interview with a Bestselling Author</h3>
+              <p>Learn the secrets behind their success in this in-depth conversation.</p>
+              <a href="#" class="read-link">Read More</a>
+            </article>
+          </div>
+        </div>
+        <!-- Vertical Separator -->
+        <div class="separator"></div>
+        <!-- Right Side: Category Dropdown -->
+        <div class="blog-sidebar">
+          <h3>Explore by Category</h3>
+          <p class="category-description">Filter our blog posts by category to find the content that interests you most.</p>
+          <select class="category-dropdown">
+            <option value="all">All Categories</option>
+            <option value="ama">AMA</option>
+            <option value="interview">Interview</option>
+            <option value="writing-tips">Writing Tips</option>
+          </select>
+          <hr class="horizontal-line">
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>

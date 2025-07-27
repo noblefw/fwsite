@@ -1,0 +1,75 @@
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background: #e1e4c5;
+  border-radius: 0 12px 12px 0;
+  padding: 1.5rem;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar h2 {
+  font-size: 1.5rem;
+  margin-top: 0;
+  color: #333;
+}
+
+.sidebar-nav {
+  list-style: none;
+  padding: 0;
+  margin-top: 1.5rem;
+}
+
+.sidebar-nav li {
+  margin-bottom: 1rem;
+}
+
+.sidebar-nav a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  padding: 0.5rem 0;
+  transition: color 0.2s ease;
+}
+
+.sidebar-nav a:hover {
+  color: #7a8450;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 2rem;
+}
+
+/* Cards (sections) */
+.card {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.card h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+/* Writing Sprint History List */
+#sprint-history-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+#sprint-history-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+  color: #444;
+}

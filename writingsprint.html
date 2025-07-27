@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="CSS/footer.css" />
   <link rel="stylesheet" href="CSS/writingsprint.css" />
   <link rel="stylesheet" href="CSS/stylesheet.css" />
-  <script src="Scripts/sprints.js" defer></script>
+  <script type="module" src="Scripts/sprints.js"></script>
   <script src="Scripts/darkmode.js" defer></script>
   <script type="module" src="Scripts/navbar.js"></script>
   <link rel="icon" href="Images/FW-logo.png" type="image/png" />
@@ -16,127 +16,112 @@
 </head>
 <body>
 
-<header>
-  <div class="navbar">
-    <div class="navbar-left">
-      <a href="index.html">
-        <img src="Images/Title_logo.png" alt="FantasyWriters Logo" />
-      </a>
-    </div>
-    <button class="hamburger" aria-label="Toggle menu" role="button">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <nav class="navbar-links">
-      <a href="index.html">Home</a>
-      <div class="dropdown">
-        <a href="#" class="dropbtn">Resources <span class="arrow-down"></span></a>
-        <div class="dropdown-content">
-          <div class="dropdown-section-title">Writing Tools</div>
-          <a href="writingsprint.html">Writing Sprint</a>
-          <a href="fanowrimo.html">FaNoWriMo</a>
-          <div class="dropdown-section-title">Generators</div>
-          <a href="namegenerator.html">Name Generator</a>
+  <header>
+    <div class="navbar">
+      <div class="navbar-left">
+        <a href="index.html">
+          <img src="Images/Title_logo.png" alt="FantasyWriters Logo" />
+        </a>
+      </div>
+      <button class="hamburger" aria-label="Toggle menu" role="button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="navbar-links">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+          <a href="#" class="dropbtn">Resources <span class="arrow-down"></span></a>
+          <div class="dropdown-content">
+            <div class="dropdown-section-title">Writing Tools</div>
+            <a href="writingsprint.html">Writing Sprint</a>
+            <a href="publishing_directory.html">Query List</a>
+            <a href="fanowrimo.html">FaNoWriMo</a>
+            <div class="dropdown-section-title">Generators</div>
+            <a href="namegenerator.html">Name Generator</a>
+          </div>
         </div>
-      </div>
-      <a href="about.html">About</a>
-      <a href="404.html">Community</a>
-      <a href="contact.html">Contact Us</a>
-    </nav>
+        <a href="about.html">About</a>
+        <a href="404.html">Blog</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
+  </header>
 
-    <div id="auth-sensitive-nav" class="hidden">
-      <div class="auth-buttons">
-        <a href="login.html" class="login-btn">Login</a>
-        <a href="register.html" class="register-btn">Register</a>
-      </div>
-
-      <div class="profile-menu hidden">
-        <button class="profile-btn">Profile ▾</button>
-        <div class="profile-dropdown">
-          <a href="dashboard.html">Settings</a>
-          <button id="logout-btn">Logout</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
-
-  <main class="sprint-page">
-    <h1>Writing Sprint</h1>
-    <p>Customize your sprint session below and press start when ready. You can adjust some settings during the sprint!</p>
-    <quote class="attribution">All background images were pulled from Freepik. They belong to the rightful owner.</quote>
+<main class="sprint-page">
+  <h1>Writing Sprint</h1>
+  <p>Customize your sprint session below and press start when ready. You can adjust some settings during the sprint!</p>
+  <blockquote class="attribution">All background images were pulled from Freepik. They belong to the rightful owner.</blockquote>
 </main>
 
-  <div class="sprint-layout">
-    <section class="sprint-settings">
+
+<div class="sprint-layout">
+  <section class="sprint-settings">
     <label for="duration">
       Sprint Duration
       <span class="tooltip" data-tooltip="Select the total sprint time.">?</span>
     </label>
-      <select id="duration">
-        <option value="5">5 Minutes</option>
-        <option value="10">10 Minutes</option>
-        <option value="20">20 Minutes</option>
-        <option value="30">30 Minutes</option>
-        <option value="45">45 Minutes</option>
-        <option value="60">60 Minutes</option>
-      </select>
+    <select id="duration">
+      <option value="0.1">1 Minute</option>
+      <option value="5">5 Minutes</option>
+      <option value="10">10 Minutes</option>
+      <option value="20">20 Minutes</option>
+      <option value="30">30 Minutes</option>
+      <option value="45">45 Minutes</option>
+      <option value="60">60 Minutes</option>
+    </select>
 
-      <label for="background">
-        Background Image
-        <span class="tooltip" data-tooltip="Select a background to set the mood while you write.">?</span>
-      </label>
-      <select id="background">
-        <option value="Images/sprints/dragonknight.jpg">Knight and Dragons</option>
-        <option value="Images/sprints/dragoncastle.jpg">Knight and Castle</option>
-        <option value="Images/sprints/castlecliff.jpg">Castle on Cliff</option>
-        <option value="Images/sprints/ancientruins.jpg">Ancient Ruins</option>
-        <option value="Images/sprints/sunkencity.jpg" selected>Sunken City</option>
-        <option value="Images/sprints/finalbattle.jpg">Final Battle</option>
-      </select>
+    <label for="background">
+      Background Image
+      <span class="tooltip" data-tooltip="Select a background to set the mood while you write.">?</span>
+    </label>
+    <select id="background">
+      <option value="Images/sprints/dragonknight.jpg">Knight and Dragons</option>
+      <option value="Images/sprints/dragoncastle.jpg">Knight and Castle</option>
+      <option value="Images/sprints/castlecliff.jpg">Castle on Cliff</option>
+      <option value="Images/sprints/ancientruins.jpg">Ancient Ruins</option>
+      <option value="Images/sprints/sunkencity.jpg" selected>Sunken City</option>
+      <option value="Images/sprints/finalbattle.jpg">Final Battle</option>
+    </select>
 
-      <label for="ambience">
-        Ambience
-        <span class="tooltip" data-tooltip="Choose background ambience for your sprint session.">?</span>
-      </label>
-      <select id="ambience">
-        <option value="none">None</option>
-        <option value="Sound/Forest.mp3">Forest</option>
-        <option value="Sound/Night.mp3">Night</option>
-        <option value="Sound/Windhowl.mp3">Wind Howling</option>
-        <option value="Sound/Fireplace.mp3">Fireplace</option>
-        <option value="Sound/Birds.mp3">Birds</option>
-      </select>
+    <label for="ambience">
+      Ambience
+      <span class="tooltip" data-tooltip="Choose background ambience for your sprint session.">?</span>
+    </label>
+    <select id="ambience">
+      <option value="none">None</option>
+      <option value="Sound/Forest.mp3">Forest</option>
+      <option value="Sound/Night.mp3">Night</option>
+      <option value="Sound/Windhowl.mp3">Wind Howling</option>
+      <option value="Sound/Fireplace.mp3">Fireplace</option>
+      <option value="Sound/Birds.mp3">Birds</option>
+    </select>
 
-      
-      <label for="volume-slider">
-        Volume
-        <span class="tooltip" data-tooltip="Adjust the volume of the selected ambience audio.">?</span>
-      </label>
-      <input type="range" id="volume-slider" min="0" max="100" value="50" />
+    <label for="volume-slider">
+      Volume
+      <span class="tooltip" data-tooltip="Adjust the volume of the selected ambience audio.">?</span>
+    </label>
+    <input type="range" id="volume-slider" min="0" max="100" value="50" />
 
-      <button id="start-btn" class="btn" onclick="toggleSprint()">Start Sprint</button>
-      <button class="btn" onclick="resetSprint()">Reset Sprint</button>
-      
-      <div class="darkmode-toggle-wrapper">
+    <button id="start-btn" class="btn">Start Sprint</button>
+    <button id="reset-btn" class="btn">Reset Sprint</button>
+
+    <div class="darkmode-toggle-wrapper">
       <label for="darkmode-toggle">Toggle Darkmode:</label>
       <label class="switch">
         <input type="checkbox" id="darkmode-toggle" onchange="toggleDarkMode()" />
         <span class="slider round"></span>
-        </label>
-      </div>
+      </label>
+    </div>
+  </section>
 
-    </section>
-
-    <section class="sprint-card" id="sprint-card">
-      <div class="sprint-info">
-        <h2 id="sprint-status">Ready to Sprint!</h2>
-        <p id="sprint-timer">00:00</p>
-        <div id="motivation-text" class="motivation-text">You’ve got this!</div>
-      </div>
-    </section>
-  </div>
+  <section class="sprint-card" id="sprint-card">
+    <div class="sprint-info">
+      <h2 id="sprint-status">Ready to Sprint!</h2>
+      <p id="sprint-timer">00:00</p>
+      <div id="motivation-text" class="motivation-text">You’ve got this!</div>
+    </div>
+  </section>
+</div>
 
 <footer>
   <div class="footer-container">
@@ -166,8 +151,6 @@
     © 2025 FantasyWriters. All rights reserved.
   </div>
 </footer>
-
-
 
 </body>
 </html>

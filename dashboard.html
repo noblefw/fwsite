@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FantasyWriters | Dashboard</title>
+  <link rel="stylesheet" href="CSS/navbar.css" />
+  <link rel="stylesheet" href="CSS/footer.css" />
+  <link rel="stylesheet" href="CSS/stylesheet.css" />
+  <link rel="stylesheet" href="CSS/dashboard.css" />
+  <script type="module" src="Scripts/navbar.js"></script>
+  <script type="module" src="Scripts/dashboard.js"></script>
+  <link rel="icon" href="Images/FW-logo.png" type="image/png" />
+</head>
+
+<body>
+  <header>
+    <div class="navbar">
+      <div class="navbar-left">
+        <a href="index.html">
+          <img src="Images/Title_logo.png" alt="FantasyWriters Logo" />
+        </a>
+      </div>
+      <button class="hamburger" aria-label="Toggle menu" role="button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="navbar-links">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+          <a href="#" class="dropbtn">Resources <span class="arrow-down"></span></a>
+          <div class="dropdown-content">
+            <div class="dropdown-section-title">Writing Tools</div>
+            <a href="writingsprint.html">Writing Sprint</a>
+            <a href="fanowrimo.html">FaNoWriMo</a>
+            <div class="dropdown-section-title">Generators</div>
+            <a href="namegenerator.html">Name Generator</a>
+          </div>
+        </div>
+        <a href="about.html">About</a>
+        <a href="404.html">Community</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
+
+      <div id="auth-sensitive-nav" class="hidden">
+        <div class="auth-buttons">
+          <a href="login.html" class="login-btn">Login</a>
+          <a href="register.html" class="register-btn">Register</a>
+        </div>
+
+        <div class="profile-menu hidden">
+          <button class="profile-btn">Profile ▾</button>
+          <div class="profile-dropdown">
+            <a href="dashboard.html">Settings</a>
+            <button id="logout-btn">Logout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+    <div class="dashboard-layout">
+    <aside class="sidebar">
+      <h2>Dashboard</h2>
+      <ul class="sidebar-nav">
+        <li><a href="#user-info">👤 Account Info</a></li>
+        <li><a href="#writing-history">🕒 Sprint History</a></li>
+        <li><a href="#settings">⚙️ Settings</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <section id="user-info" class="card">
+        <h3>Account Information</h3>
+        <p><strong>Email:</strong> <span id="user-email">Loading...</span></p>
+        <p><strong>Joined:</strong> <span id="user-joined">Loading...</span></p>
+      </section>
+
+      <section id="writing-history" class="card">
+        <h3>Writing Sprint History</h3>
+        <ul id="sprint-history-list">
+          <!-- Sprints from Firestore will appear here -->
+        </ul>
+      </section>
+
+      <section id="settings" class="card">
+        <h3>Settings</h3>
+        <p>More features coming soon...</p>
+        <button id="delete-account-btn" style="background:#e74c3c; color:white; padding:10px 15px; border:none; cursor:pointer;">
+          Delete Account
+        </button>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <h4>About</h4>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="contact.html">Partnerships</a>
+        <a href="faq.html">Frequently Asked Questions</a>
+      </div>
+      <div class="footer-column">
+        <h4>Resources</h4>
+        <a href="writingsprint.html">Writing Sprint</a>
+        <a href="namegenerator.html">Name Generator</a>
+      </div>
+      <div class="footer-column">
+        <h4>Community</h4>
+        <a href="https://discord.com/invite/7nu2Zz8StN" target="_blank" rel="noopener">
+          <img src="Images/Discord_Logo.png" alt="Discord logo" class="footer-icon" /> Discord
+        </a>
+        <a href="https://www.reddit.com/r/fantasywriters/" target="_blank" rel="noopener">
+          <img src="Images/Reddit_Logo.png" alt="Reddit logo" class="footer-icon" /> Reddit
+        </a>
+      </div>
+    </div>
+    <div class="footer-copy">
+      © 2025 FantasyWriters. All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>

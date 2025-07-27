@@ -1,12 +1,34 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+document.addEventListener('DOMContentLoaded', () => {
+  const firebaseConfig = {
+    apiKey: "AIzaSyDj7-wG_XPGFLSI0ZFEIia-q9QjwIlFlxI",
+    authDomain: "fantasywriters-e7c64.firebaseapp.com",
+    projectId: "fantasywriters-e7c64",
+    storageBucket: "fantasywriters-e7c64.firebasestorage.app",
+    messagingSenderId: "736890201761",
+    appId: "1:736890201761:web:0e35a823c3a2a2fbd272e0",
+    measurementId: "G-GXHW1BFKJ0"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
   let timerInterval;
   let quoteInterval;
   let timeLeft = 0;
   let isRunning = false;
   let audio = null;
+  let currentUser = null;
 
   const slider = document.getElementById('volume-slider');
   const textElement = document.getElementById('motivation-text');
   const durationSelect = document.getElementById('duration');
+  const ambienceSelect = document.getElementById('ambience');
+
   const quotes = [
     "You’ve got this!",
     "Keep going, you're doing amazing!",
@@ -27,6 +49,15 @@
 
   let quoteIndex = 0;
 
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      currentUser = user;
+    } else {
+      currentUser = null;
+      console.warn("User not logged in");
+    }
+  });
+
   function showNextQuote() {
     textElement.style.opacity = 0;
     setTimeout(() => {
@@ -36,7 +67,7 @@
     }, 1000);
   }
 
-  function toggleSprint() {
+  window.toggleSprint = function() {
     const startBtn = document.getElementById('start-btn');
     if (!isRunning) {
       startSprint();
@@ -45,120 +76,133 @@
       pauseSprint();
       startBtn.textContent = 'Start Sprint';
     }
-  }
+  };
+
+  window.resetSprint = function() {
+    clearInterval(timerInterval);
+    clearInterval(quoteInterval);
+    isRunning = false;
+    timeLeft = 0;
+    document.getElementById('sprint-timer').textContent = '00:00';
+    document.getElementById('sprint-status').textContent = 'Ready to Sprint!';
+    document.getElementById('start-btn').textContent = 'Start Sprint';
+    textElement.textContent = "You've got this!";
+    if (audio) {
+      audio.pause();
+      audio.currentTime = 0;
+      audio = null;
+    }
+    // Enable duration dropdown again on reset
+    durationSelect.disabled = false;
+  };
 
   function startSprint() {
-    if (!timeLeft) {
-      const duration = parseInt(durationSelect.value);
-      timeLeft = duration * 60;
-    }
+    if (isRunning) return;
+    timeLeft = parseFloat(durationSelect.value) * 60;
+    if (timeLeft <= 0) return;
+    isRunning = true;
 
-    const background = document.getElementById('background').value;
-    const ambience = document.getElementById('ambience').value;
-    const sprintCard = document.getElementById('sprint-card');
-    const sprintStatus = document.getElementById('sprint-status');
-
-    sprintCard.style.backgroundImage = `url('${background}')`;
-    sprintStatus.textContent = 'Start Writing!';
-    sprintStatus.classList.remove('sprint-complete');
-
+    // Disable duration dropdown while sprint is running (even if paused)
     durationSelect.disabled = true;
 
+    document.getElementById('sprint-status').textContent = 'Sprint In Progress';
+
+    timerInterval = setInterval(() => {
+      if (timeLeft <= 0) {
+        endSprint();
+        return;
+      }
+      timeLeft--;
+      updateTimerDisplay(timeLeft);
+    }, 1000);
+
+    quoteInterval = setInterval(showNextQuote, 6000);
+    showNextQuote();
+
+    // Start ambience audio
     if (audio) {
-      audio.play();
-    } else if (ambience !== 'none') {
-      audio = new Audio(ambience);
+      audio.pause();
+      audio.currentTime = 0;
+    }
+    const ambienceSrc = ambienceSelect.value;
+    if (ambienceSrc !== 'none') {
+      audio = new Audio(ambienceSrc);
       audio.loop = true;
       audio.volume = slider.value / 100;
       audio.play();
+    } else {
+      audio = null;
     }
-
-    timerInterval = setInterval(() => {
-      timeLeft--;
-      if (timeLeft <= 0) {
-        clearInterval(timerInterval);
-        clearInterval(quoteInterval);
-
-        sprintStatus.textContent = 'Sprint Complete! 🎉';
-        sprintStatus.classList.add('sprint-complete');
-
-        confetti({
-          particleCount: 100,
-          spread: 70,
-          origin: { y: 0.6, x: 0.62}
-        });
-        setTimeout(() => {
-          confetti({
-            particleCount: 100,
-            spread: 100,
-            origin: { y: 0.6, x: 0.62}
-          });
-        }, 300);
-        
-        document.getElementById('sprint-timer').textContent = '00:00';
-
-        if (audio) {
-          audio.pause();
-          audio = null;
-        }
-
-        const alarmSound = new Audio('Sound/Alarm2.mp3');
-        alarmSound.volume = 1;
-        alarmSound.play();
-
-        const sprintMinutes = parseInt(durationSelect.value);
-        textElement.style.opacity = 0;
-        setTimeout(() => {
-          textElement.textContent = `You just finished a ${sprintMinutes}-minute sprint!`;
-          textElement.style.opacity = 1;
-        }, 1000);
-
-        document.getElementById('start-btn').textContent = 'Start Sprint';
-        isRunning = false;
-        timeLeft = 0;
-        durationSelect.disabled = false;
-      } else {
-        updateTimerDisplay(timeLeft);
-      }
-    }, 1000);
-
-    isRunning = true;
   }
 
   function pauseSprint() {
-    clearInterval(timerInterval);
-    if (audio) audio.pause();
-    isRunning = false;
-  }
-
-  function resetSprint() {
+    if (!isRunning) return;
     clearInterval(timerInterval);
     clearInterval(quoteInterval);
-    timeLeft = 45 * 60;
     isRunning = false;
+    if (audio) audio.pause();
+    // Duration remains disabled while paused
+  }
 
-    durationSelect.value = '45';
-    document.getElementById('background').value = 'Images/sprints/dragonknight.jpg';
-    document.getElementById('ambience').value = 'none';
-    slider.value = 50;
+  function endSprint() {
+    clearInterval(timerInterval);
+    clearInterval(quoteInterval);
+    isRunning = false;
+    document.getElementById('sprint-status').textContent = 'Sprint Complete!';
     document.getElementById('start-btn').textContent = 'Start Sprint';
-    durationSelect.disabled = false;
-
-    const sprintStatus = document.getElementById('sprint-status');
-    sprintStatus.textContent = 'Ready to Sprint!';
-    sprintStatus.classList.remove('sprint-complete');
-
-    updateTimerDisplay(timeLeft);
-    document.getElementById('sprint-card').style.backgroundImage = `url('Images/sprints/dragonknight.jpg')`;
-
+    document.getElementById('sprint-timer').textContent = '00:00';
     if (audio) {
       audio.pause();
       audio = null;
     }
 
-    quoteIndex = 0;
-    showNextQuote();
-    quoteInterval = setInterval(showNextQuote, 5000);
+      // Play finishing sound
+      const finishSound = new Audio('Sound/Alarm2.mp3');
+      finishSound.volume = 1; // Set volume to max for finishing sound
+      finishSound.play();
+
+
+    // Enable duration dropdown when sprint ends
+    durationSelect.disabled = false;
+    
+
+    confetti({
+      particleCount: 300,
+      spread: 90,
+      origin: { y: 0.6 }
+    });
+
+    // Show modal to input word count
+    const modal = document.getElementById('word-count-modal');
+    modal.classList.remove('hidden');
+
+    const submitBtn = document.getElementById('submit-word-count');
+    submitBtn.onclick = async () => {
+      const wordCountInput = document.getElementById('word-count-input');
+      const wordCount = parseInt(wordCountInput.value);
+      if (isNaN(wordCount) || wordCount < 0) {
+        alert('Please enter a valid number for word count.');
+        return;
+      }
+      if (!currentUser) {
+        alert('You must be logged in to submit your word count.');
+        modal.classList.add('hidden');
+        return;
+      }
+      try {
+        await addDoc(collection(db, 'userSprintData'), {
+          userId: currentUser.uid,
+          wordCount: wordCount,
+          timestamp: new Date()
+        });
+        alert('Word count submitted successfully!');
+      } catch (error) {
+        console.error('Error saving word count:', error);
+        alert('Failed to submit word count.');
+      }
+      wordCountInput.value = '';
+      modal.classList.add('hidden');
+    };
   }
 
   function updateTimerDisplay(seconds) {
@@ -168,54 +212,45 @@
       `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
   }
 
-  function updateSliderBackground() {
+  // Volume control updates audio volume live
+  slider.addEventListener('input', () => {
     if (audio) audio.volume = slider.value / 100;
-  }
+  });
 
-slider.addEventListener('input', updateSliderBackground);
-
-document.getElementById('background').addEventListener('change', function () {
+  // Background image change
+  const backgroundSelect = document.getElementById('background');
   const sprintCard = document.querySelector('.sprint-card');
 
-  sprintCard.style.opacity = 0;
+  backgroundSelect.addEventListener('change', () => {
+    const bgUrl = backgroundSelect.value;
+    if (sprintCard) {
+      sprintCard.style.backgroundImage = `url('${bgUrl}')`;
+    }
+  });
 
-  setTimeout(() => {
-    sprintCard.style.backgroundImage = `url('${this.value}')`;
-    sprintCard.style.opacity = 1;
-  }, 100); // 600ms = duur van je CSS transition
+  // Initialize background on load
+  if (sprintCard) {
+    sprintCard.style.backgroundImage = `url('${backgroundSelect.value}')`;
+  }
+
+  // Change ambience during sprint seamlessly without pause
+  ambienceSelect.addEventListener('change', () => {
+    if (audio) {
+      audio.pause();
+      audio.currentTime = 0;
+    }
+    const newSrc = ambienceSelect.value;
+    if (isRunning && newSrc !== 'none') {
+      audio = new Audio(newSrc);
+      audio.loop = true;
+      audio.volume = slider.value / 100;
+      audio.play();
+    } else {
+      audio = null;
+    }
+  });
+
+  // Buttons event listeners
+  document.getElementById('start-btn').addEventListener('click', toggleSprint);
+  document.getElementById('reset-btn').addEventListener('click', resetSprint);
 });
-
-durationSelect.addEventListener('change', function () {
-  if (!isRunning) {
-    const duration = parseInt(this.value);
-    timeLeft = duration * 60;
-    updateTimerDisplay(timeLeft);
-  }
-});
-
-document.getElementById('ambience').addEventListener('change', function () {
-  const selectedAmbience = this.value;
-
-  if (audio) {
-    audio.pause();
-    audio = null;
-  }
-
-  if (selectedAmbience !== 'none') {
-    audio = new Audio(selectedAmbience);
-    audio.loop = true;
-    audio.volume = slider.value / 100;
-    audio.play();
-  }
-});
-
-  // Start quotes on load
-  showNextQuote();
-  quoteInterval = setInterval(showNextQuote, 5000);
-
-  const password = "dragonknight";
-  let attempt = prompt("Enter password to access this page:");
-  if (attempt !== password) {
-    alert("Wrong password!");
-    window.location.href = "https://fantasywriters.org/404.html"; // redirect away or close
-  }

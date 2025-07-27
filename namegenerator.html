@@ -12,69 +12,70 @@
 </head>
 <body>
   
-<header>
-  <div class="navbar">
-    <div class="navbar-left">
-      <a href="index.html">
-        <img src="Images/Title_logo.png" alt="FantasyWriters Logo" />
-      </a>
-    </div>
-    <button class="hamburger" aria-label="Toggle menu" role="button">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <nav class="navbar-links">
-      <a href="index.html">Home</a>
-      <div class="dropdown">
-        <a href="#" class="dropbtn">Resources <span class="arrow-down"></span></a>
-        <div class="dropdown-content">
-          <div class="dropdown-section-title">Writing Tools</div>
-          <a href="writingsprint.html">Writing Sprint</a>
-          <a href="fanowrimo.html">FaNoWriMo</a>
-          <div class="dropdown-section-title">Generators</div>
-          <a href="namegenerator.html">Name Generator</a>
+  <header>
+    <div class="navbar">
+      <div class="navbar-left">
+        <a href="index.html">
+          <img src="Images/Title_logo.png" alt="FantasyWriters Logo" />
+        </a>
+      </div>
+      <button class="hamburger" aria-label="Toggle menu" role="button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="navbar-links">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+          <a href="#" class="dropbtn">Resources <span class="arrow-down"></span></a>
+          <div class="dropdown-content">
+            <div class="dropdown-section-title">Writing Tools</div>
+            <a href="writingsprint.html">Writing Sprint</a>
+            <a href="publishing_directory.html">Query List</a>
+            <a href="fanowrimo.html">FaNoWriMo</a>
+            <div class="dropdown-section-title">Generators</div>
+            <a href="namegenerator.html">Name Generator</a>
+          </div>
         </div>
-      </div>
-      <a href="about.html">About</a>
-      <a href="404.html">Community</a>
-      <a href="contact.html">Contact Us</a>
-    </nav>
+        <a href="about.html">About</a>
+        <a href="404.html">Blog</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
+  </header>
 
-    <div id="auth-sensitive-nav" class="hidden">
-      <div class="auth-buttons">
-        <a href="login.html" class="login-btn">Login</a>
-        <a href="register.html" class="register-btn">Register</a>
-      </div>
-
-      <div class="profile-menu hidden">
-        <button class="profile-btn">Profile ▾</button>
-        <div class="profile-dropdown">
-          <a href="dashboard.html">Settings</a>
-          <button id="logout-btn">Logout</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
-
-<main class="fanowrimo-page">
+<main class="namegenerator-page">
   <h1>Fantasy Name Generator</h1>
   <p>Select a race and generate fantasy names in a clean, styled grid.</p>
 
-  <label for="race-select">Choose a race:</label>
-  <select id="race-select" class="btn">
-    <option value="elf">Elf</option>
-    <option value="dwarf">Dwarf</option>
-    <option value="orc">Orc</option>
-    <option value="human">Human</option>
-  </select>
+  <label for="race-select" class="ng-label">Choose a race:</label>
+  <div class="ng-controls">
+    <select id="race-select" class="ng-select">
+      <option value="elf">Elf</option>
+      <option value="dwarf">Dwarf</option>
+      <option value="orc">Orc</option>
+      <option value="human">Human</option>
+    </select>
 
-  <button class="btn" onclick="generateNames()">Generate Names</button>
+    <button class="ng-btn" onclick="generateNames()">Generate Names</button>
+  </div>
 
   <div id="name-grid" class="name-grid"></div>
   <div id="copy-notification"></div>
+
+  <div class="ng-custom-input">
+    <label for="custom-syllable" class="ng-label">Custom Prefix or Suffix (max 4 characters):</label>
+    <div class="ng-controls">
+      <input type="text" id="custom-syllable" class="ng-input" placeholder="e.g., Ae, ion" maxlength="4" />
+      <select id="syllable-type" class="ng-select">
+        <option value="prefix">Use as Prefix</option>
+        <option value="suffix">Use as Suffix</option>
+        <option value="random">Random</option>
+      </select>
+      <button class="ng-btn" onclick="generateNames(true)">Generate with Custom</button>
+    </div>
+  </div>
 </main>
+
 
 <footer>
   <div class="footer-container">
@@ -106,24 +107,90 @@
 </footer>
 
 <script>
-  const nameData = {
-    elf: ["Aerendyl", "Lúthien", "Faelar", "Elenion", "Nuala", "Thalor", "Sylvara", "Aeris", "Myriil"],
-    dwarf: ["Thrain", "Borin", "Gimli", "Durin", "Bofur", "Kili", "Thror", "Dwalin", "Balin"],
-    orc: ["Gorash", "Thrukk", "Maknug", "Zugzug", "Krogar", "Ulgoth", "Brakka", "Grush", "Skarn"],
-    human: ["Alric", "Liora", "Cedric", "Elara", "Gareth", "Isolde", "Thorne", "Seren", "Mira"]
-  };
+const nameParts = {
+  elf: {
+    prefixes: ["Ae", "Lu", "Fa", "El", "Nu", "Tha", "Syl", "Ae", "My"],
+    middles: ["ren", "thie", "la", "ni", "ra", "lor", "va", "ris", "riil"],
+    suffixes: ["dyl", "n", "ar", "ion", "la", "or", "ra", "s", "il"]
+  },
+  dwarf: {
+    prefixes: ["Th", "Bo", "Gi", "Du", "Bo", "Ki", "Th", "Dw", "Ba"],
+    middles: ["rai", "rin", "ml", "ri", "fu", "li", "ro", "wa", "li"],
+    suffixes: ["n", "n", "", "n", "r", "", "r", "n", "n"]
+  },
+  orc: {
+    prefixes: ["Go", "Thru", "Mak", "Zu", "Kro", "Ul", "Bra", "Gru", "Ska"],
+    middles: ["ra", "kk", "gn", "zg", "gar", "go", "kka", "sh", "rn"],
+    suffixes: ["sh", "", "g", "g", "", "th", "", "", "n"]
+  },
+  human: {
+    prefixes: ["Al", "Li", "Ce", "Ela", "Ga", "Is", "Tho", "Se", "Mi"],
+    middles: ["ri", "or", "dri", "ra", "re", "ol", "rn", "re", "ra"],
+    suffixes: ["c", "a", "c", "ra", "th", "de", "", "n", ""]
+  }
+};
 
-  function generateNames() {
+function generateNames(useCustom = false) {
   const race = document.getElementById("race-select").value;
-  const names = nameData[race];
+  const parts = nameParts[race];
   const nameGrid = document.getElementById("name-grid");
   const notification = document.getElementById("copy-notification");
+  const customSyllable = document.getElementById("custom-syllable").value.trim();
+  const syllableType = document.getElementById("syllable-type").value;
 
-  // Shuffle and pick 9 names
-  const shuffled = [...names].sort(() => 0.5 - Math.random());
-  const selected = shuffled.slice(0, 9);
+  // Check for character limit
+  if (useCustom && customSyllable && customSyllable.length > 4) {
+    notification.textContent = "Custom syllable must be 4 characters or less!";
+    notification.style.opacity = "1";
+    setTimeout(() => {
+      notification.style.opacity = "0";
+    }, 2000);
+    return;
+  }
 
-  nameGrid.innerHTML = selected.map(name => `<div class="name-box">${name}</div>`).join("");
+  let generatedNames = [];
+
+  for (let i = 0; i < 12; i++) {
+    let prefix, middle, suffix, name;
+
+    // Standard generation (no custom syllable or not using custom)
+    if (!useCustom || !customSyllable) {
+      prefix = parts.prefixes[Math.floor(Math.random() * parts.prefixes.length)];
+      middle = parts.middles[Math.floor(Math.random() * parts.middles.length)];
+      suffix = parts.suffixes[Math.floor(Math.random() * parts.suffixes.length)];
+      name = prefix + middle + suffix;
+    } else {
+      // Custom syllable handling
+      prefix = parts.prefixes[Math.floor(Math.random() * parts.prefixes.length)];
+      middle = parts.middles[Math.floor(Math.random() * parts.middles.length)];
+      suffix = parts.suffixes[Math.floor(Math.random() * parts.suffixes.length)];
+
+      if (syllableType === "prefix") {
+        // Use custom syllable as prefix
+        name = customSyllable + middle + suffix;
+      } else if (syllableType === "suffix") {
+        // Use custom syllable as suffix
+        name = prefix + middle + customSyllable;
+      } else if (syllableType === "random") {
+        // Randomly insert custom syllable
+        const positions = [
+          () => customSyllable + prefix + middle + suffix, // Before prefix
+          () => prefix + customSyllable + middle + suffix, // Between prefix and middle
+          () => prefix + middle + customSyllable + suffix, // Between middle and suffix
+          () => prefix + middle + suffix + customSyllable  // After suffix
+        ];
+        const randomPosition = positions[Math.floor(Math.random() * positions.length)];
+        name = randomPosition();
+      }
+    }
+
+    // Capitalize first letter
+    name = name.charAt(0).toUpperCase() + name.slice(1);
+    generatedNames.push(name);
+  }
+
+  // Update the grid
+  nameGrid.innerHTML = generatedNames.map(name => `<div class="name-box">${name}</div>`).join("");
 
   // Add click event to copy name
   document.querySelectorAll(".name-box").forEach(box => {
@@ -139,10 +206,7 @@
   });
 }
 
-  // Run on page load to show names immediately
-  window.onload = () => {
-    generateNames();
-  };
+window.onload = generateNames;
 </script>
 
 </body>
