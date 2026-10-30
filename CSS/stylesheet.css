@@ -391,6 +391,46 @@ main {
 }
 
 /* FANOWRIMO PAGE */
+.fanowrimo-page .toc {
+  width: fit-content;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0 0 2rem;
+  padding: 1.5rem 1.75rem;
+  border: 1px solid rgba(80, 84, 90, 0.18);
+  border-radius: 12px;
+  background: rgba(224, 227, 231, 0.68);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(4px);
+}
+
+.fanowrimo-page .toc h2 {
+  max-width: none;
+  margin: 0 0 0.75rem;
+  font-size: 1.5rem;
+}
+
+.fanowrimo-page .toc ul {
+  max-width: none;
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.fanowrimo-page .toc ul ul {
+  margin-top: 0.4rem;
+}
+
+.fanowrimo-page .toc a {
+  color: #3e4f68;
+  text-decoration-color: rgba(62, 79, 104, 0.35);
+  text-underline-offset: 0.15em;
+}
+
+.fanowrimo-page .toc a:hover {
+  color: #1a1a1a;
+  text-decoration-color: currentColor;
+}
+
 .fanowrimo-page h1 {
   font-family: 'Lora', serif;
   font-size: 2.5rem;
