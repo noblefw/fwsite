@@ -1,4 +1,5 @@
 Navbar entries removed from index.html:
+        <a href="404.html">Blog</a>
             <a href="writingsprint.html">Writing Sprint</a>
             <a href="publishing_directory.html">Query List</a>
             <div class="dropdown-section-title">Generators</div>
